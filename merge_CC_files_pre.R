@@ -57,3 +57,14 @@ cc_all <- rbind(cc_32,
                 cc_59)
 write.csv(cc_all, "W://VF/Pinnaroo/CC files/Pre trial/merge_jax/cc_all.csv", row.names=FALSE)
 
+
+heath_61 <- read.csv("W://VF/Pinnaroo/Heaths lucerne/CC Lucerne/MAP0061.CSV")
+heath_62 <- read.csv("W://VF/Pinnaroo/Heaths lucerne/CC Lucerne/MAP0062.CSV")
+heath_63 <- read.csv("W://VF/Pinnaroo/Heaths lucerne/CC Lucerne/MAP0063.CSV")
+heath_64 <- read.csv("W://VF/Pinnaroo/Heaths lucerne/CC Lucerne/MAP0064.CSV")
+heath_65 <- read.csv("W://VF/Pinnaroo/Heaths lucerne/CC Lucerne/MAP0065.CSV")
+heath_66 <- read.csv("W://VF/Pinnaroo/Heaths lucerne/CC Lucerne/MAP0066.CSV")
+
+heath_all <- rbind(heath_61, heath_62, heath_63, heath_64, heath_65, heath_66)
+
+write.csv(heath_all, "W://VF/Pinnaroo/Heaths lucerne/CC Lucerne/merge_jaxs/heath_all_MAP.csv", row.names=FALSE)
