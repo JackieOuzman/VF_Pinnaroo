@@ -1,5 +1,7 @@
 library(tidyverse)
-
+library(dplyr)
+###################################################################################################
+##########         Crop circle data pre trial ######
 cc_59 <- read.csv("W://VF/Pinnaroo/CC files/Pre trial/MAP0059.CSV")
 cc_58 <- read.csv("W://VF/Pinnaroo/CC files/Pre trial/MAP0058.CSV")
 cc_57 <- read.csv("W://VF/Pinnaroo/CC files/Pre trial/MAP0057.CSV")
@@ -39,7 +41,7 @@ cc_all <- rbind(cc_32,
                 cc_40,
                 cc_41,
                 cc_42,
-                #cc_43,# not on list copied over?
+                #cc_43,# not on list copied over? - nope all good its should not be on list
                 cc_44,
                 cc_45,
                 cc_46,
@@ -55,6 +57,8 @@ cc_all <- rbind(cc_32,
                 cc_57,
                 cc_58,
                 cc_59)
+
+
 write.csv(cc_all, "W://VF/Pinnaroo/CC files/Pre trial/merge_jax/cc_all.csv", row.names=FALSE)
 
 
@@ -68,3 +72,94 @@ heath_66 <- read.csv("W://VF/Pinnaroo/Heaths lucerne/CC Lucerne/MAP0066.CSV")
 heath_all <- rbind(heath_61, heath_62, heath_63, heath_64, heath_65, heath_66)
 
 write.csv(heath_all, "W://VF/Pinnaroo/Heaths lucerne/CC Lucerne/merge_jaxs/heath_all_MAP.csv", row.names=FALSE)
+
+
+
+###################################################################################################
+##########         Phenom data pre trial ######
+
+
+heath_62P <- read.csv("W://VF/Pinnaroo/Heaths lucerne/Phenom Lucerne/MAP0062P.CSV")
+heath_63P <- read.csv("W://VF/Pinnaroo/Heaths lucerne/Phenom Lucerne/MAP0063P.CSV")
+heath_64P <- read.csv("W://VF/Pinnaroo/Heaths lucerne/Phenom Lucerne/MAP0064P.CSV")
+heath_65P <- read.csv("W://VF/Pinnaroo/Heaths lucerne/Phenom Lucerne/MAP0065P.CSV")
+heath_66P <- read.csv("W://VF/Pinnaroo/Heaths lucerne/Phenom Lucerne/MAP0066P.CSV")
+heath_67P <- read.csv("W://VF/Pinnaroo/Heaths lucerne/Phenom Lucerne/MAP0067P.CSV")
+
+heath_allP <- rbind(heath_62P, heath_63P, heath_64P, heath_65P, heath_66P, heath_67P)
+unique(heath_allP$SENSOR_ADDR)
+
+heath_allP_sensor1 <- filter(heath_allP, SENSOR_ADDR == "1")
+heath_allP_sensor2 <- filter(heath_allP, SENSOR_ADDR == "2")
+
+write.csv(heath_allP_sensor1, "W://VF/Pinnaroo/Heaths lucerne/Phenom Lucerne/merge_jaxs/heath_all_Pheonm_sensor1.csv", row.names=FALSE)
+write.csv(heath_allP_sensor2, "W://VF/Pinnaroo/Heaths lucerne/Phenom Lucerne/merge_jaxs/heath_all_Pheonm_sensor2.csv", row.names=FALSE)
+
+############################################################################
+
+Phen_MAP0033 <-read.csv("W://VF/Pinnaroo/CC files/Pre trial/MAP0033.CSV")
+Phen_MAP0034 <-read.csv("W://VF/Pinnaroo/CC files/Pre trial/MAP0034.CSV")
+Phen_MAP0035 <-read.csv("W://VF/Pinnaroo/CC files/Pre trial/MAP0035.CSV")
+Phen_MAP0036 <-read.csv("W://VF/Pinnaroo/CC files/Pre trial/MAP0036.CSV")
+Phen_MAP0037 <-read.csv("W://VF/Pinnaroo/CC files/Pre trial/MAP0037.CSV")
+Phen_MAP0038 <-read.csv("W://VF/Pinnaroo/CC files/Pre trial/MAP0038.CSV")
+Phen_MAP0039 <-read.csv("W://VF/Pinnaroo/CC files/Pre trial/MAP0039.CSV")
+Phen_MAP0040 <-read.csv("W://VF/Pinnaroo/CC files/Pre trial/MAP0040.CSV")
+Phen_MAP0041 <-read.csv("W://VF/Pinnaroo/CC files/Pre trial/MAP0041.CSV")
+Phen_MAP0042 <-read.csv("W://VF/Pinnaroo/CC files/Pre trial/MAP0042.CSV")
+Phen_MAP0043 <-read.csv("W://VF/Pinnaroo/CC files/Pre trial/MAP0043.CSV")
+Phen_MAP0044 <-read.csv("W://VF/Pinnaroo/CC files/Pre trial/MAP0044.CSV")
+Phen_MAP0045 <-read.csv("W://VF/Pinnaroo/CC files/Pre trial/MAP0045.CSV")
+Phen_MAP0046 <-read.csv("W://VF/Pinnaroo/CC files/Pre trial/MAP0046.CSV")
+Phen_MAP0047 <-read.csv("W://VF/Pinnaroo/CC files/Pre trial/MAP0047.CSV")
+Phen_MAP0048 <-read.csv("W://VF/Pinnaroo/CC files/Pre trial/MAP0048.CSV")
+Phen_MAP0049 <-read.csv("W://VF/Pinnaroo/CC files/Pre trial/MAP0049.CSV")
+Phen_MAP0050 <-read.csv("W://VF/Pinnaroo/CC files/Pre trial/MAP0050.CSV")
+Phen_MAP0051 <-read.csv("W://VF/Pinnaroo/CC files/Pre trial/MAP0051.CSV")
+Phen_MAP0052 <-read.csv("W://VF/Pinnaroo/CC files/Pre trial/MAP0052.CSV")
+Phen_MAP0053 <-read.csv("W://VF/Pinnaroo/CC files/Pre trial/MAP0053.CSV")
+Phen_MAP0054 <-read.csv("W://VF/Pinnaroo/CC files/Pre trial/MAP0054.CSV")
+Phen_MAP0055 <-read.csv("W://VF/Pinnaroo/CC files/Pre trial/MAP0055.CSV")
+Phen_MAP0056 <-read.csv("W://VF/Pinnaroo/CC files/Pre trial/MAP0056.CSV")
+Phen_MAP0057 <-read.csv("W://VF/Pinnaroo/CC files/Pre trial/MAP0057.CSV")
+Phen_MAP0058 <-read.csv("W://VF/Pinnaroo/CC files/Pre trial/MAP0058.CSV")
+Phen_MAP0059 <-read.csv("W://VF/Pinnaroo/CC files/Pre trial/MAP0059.CSV")
+Phen_MAP0060 <-read.csv("W://VF/Pinnaroo/CC files/Pre trial/MAP0060.CSV")
+
+Phen_all <- rbind(Phen_MAP0060, 
+                  Phen_MAP0059, 
+                  Phen_MAP0058, 
+                  Phen_MAP0057, 
+                  Phen_MAP0056, 
+                  Phen_MAP0055, 
+                  Phen_MAP0054, 
+                  Phen_MAP0053, 
+                  Phen_MAP0052, 
+                  Phen_MAP0051, 
+                  Phen_MAP0050, 
+                  Phen_MAP0049, 
+                  Phen_MAP0048, 
+                  Phen_MAP0047,
+                  Phen_MAP0046,
+                  Phen_MAP0045,
+                  Phen_MAP0044,
+                  Phen_MAP0043,
+                  Phen_MAP0042,
+                  Phen_MAP0041,
+                  Phen_MAP0040,
+                  Phen_MAP0039,
+                  Phen_MAP0038,
+                  Phen_MAP0037,
+                  Phen_MAP0036,
+                  Phen_MAP0035,
+                  Phen_MAP0034,
+                  Phen_MAP0033)
+                  
+                  
+                  
+                  
+                  
+unique(Phen_all$SENSOR_ADDR)
+
+heath_allP_sensor1 <- filter(heath_allP, SENSOR_ADDR == "1")
+heath_allP_sensor2 <- filter(heath_allP, SENSOR_ADDR == "2")
