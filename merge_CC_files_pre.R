@@ -163,3 +163,79 @@ unique(Phen_all$SENSOR_ADDR)
 
 heath_allP_sensor1 <- filter(heath_allP, SENSOR_ADDR == "1")
 heath_allP_sensor2 <- filter(heath_allP, SENSOR_ADDR == "2")
+
+
+
+#########################################################################################################
+### main paddocks 
+## "W:\VF\Pinnaroo\Phenom files\Pre trial\MAP0033.CSV"
+main_trial_pre_phenom <- "W:/VF/Pinnaroo/Phenom files/Pre trial/"
+
+Phen_MAP0033 <-read.csv(paste0(main_trial_pre_phenom, "MAP0033.CSV"))
+Phen_MAP0034 <-read.csv(paste0(main_trial_pre_phenom,"MAP0034.CSV"))
+Phen_MAP0035 <-read.csv(paste0(main_trial_pre_phenom,"MAP0035.CSV"))
+Phen_MAP0036 <-read.csv(paste0(main_trial_pre_phenom,"MAP0036.CSV"))
+Phen_MAP0037 <-read.csv(paste0(main_trial_pre_phenom,"MAP0037.CSV"))
+Phen_MAP0038 <-read.csv(paste0(main_trial_pre_phenom,"MAP0038.CSV"))
+Phen_MAP0039 <-read.csv(paste0(main_trial_pre_phenom,"MAP0039.CSV"))
+Phen_MAP0040 <-read.csv(paste0(main_trial_pre_phenom,"MAP0040.CSV"))
+Phen_MAP0041 <-read.csv(paste0(main_trial_pre_phenom,"MAP0041.CSV"))
+Phen_MAP0042 <-read.csv(paste0(main_trial_pre_phenom,"MAP0042.CSV"))
+Phen_MAP0043 <-read.csv(paste0(main_trial_pre_phenom,"MAP0043.CSV"))
+Phen_MAP0044 <-read.csv(paste0(main_trial_pre_phenom,"MAP0044.CSV"))
+Phen_MAP0045 <-read.csv(paste0(main_trial_pre_phenom,"MAP0045.CSV"))
+Phen_MAP0046 <-read.csv(paste0(main_trial_pre_phenom,"MAP0046.CSV"))
+Phen_MAP0047 <-read.csv(paste0(main_trial_pre_phenom,"MAP0047.CSV"))
+Phen_MAP0048 <-read.csv(paste0(main_trial_pre_phenom,"MAP0048.CSV"))
+Phen_MAP0049 <-read.csv(paste0(main_trial_pre_phenom,"MAP0049.CSV"))
+Phen_MAP0050 <-read.csv(paste0(main_trial_pre_phenom,"MAP0050.CSV"))
+Phen_MAP0051 <-read.csv(paste0(main_trial_pre_phenom,"MAP0051.CSV"))
+Phen_MAP0052 <-read.csv(paste0(main_trial_pre_phenom,"MAP0052.CSV"))
+Phen_MAP0053 <-read.csv(paste0(main_trial_pre_phenom,"MAP0053.CSV"))
+Phen_MAP0054 <-read.csv(paste0(main_trial_pre_phenom,"MAP0054.CSV"))
+Phen_MAP0055 <-read.csv(paste0(main_trial_pre_phenom,"MAP0055.CSV"))
+Phen_MAP0056 <-read.csv(paste0(main_trial_pre_phenom,"MAP0056.CSV"))
+Phen_MAP0057 <-read.csv(paste0(main_trial_pre_phenom,"MAP0057.CSV"))
+Phen_MAP0058 <-read.csv(paste0(main_trial_pre_phenom,"MAP0058.CSV"))
+Phen_MAP0059 <-read.csv(paste0(main_trial_pre_phenom,"MAP0059.CSV"))
+
+
+Phen_all_main_pre <- rbind(Phen_MAP0033, 
+                 Phen_MAP0034,
+                 Phen_MAP0035,
+                 Phen_MAP0036,
+                 Phen_MAP0037,
+                 Phen_MAP0038,
+                 Phen_MAP0039,
+                 Phen_MAP0040,
+                 Phen_MAP0041,
+                 Phen_MAP0042,                 
+                 Phen_MAP0043,                 
+                 Phen_MAP0044,                 
+                 Phen_MAP0045,                 
+                 Phen_MAP0046,                 
+                 Phen_MAP0047,                 
+                 Phen_MAP0048,                 
+                 Phen_MAP0049,                 
+                 Phen_MAP0050,
+                 Phen_MAP0051, 
+                 Phen_MAP0052, 
+                 Phen_MAP0053, 
+                 Phen_MAP0054, 
+                 Phen_MAP0055, 
+                 Phen_MAP0056,
+                 Phen_MAP0057, 
+                 Phen_MAP0058, 
+                 Phen_MAP0059) 
+                 
+unique(Phen_all_main_pre$SENSOR_ADDR)
+
+Phen_all_main_pre_sensor1 <- filter(Phen_all_main_pre, SENSOR_ADDR == "1")
+Phen_all_main_preP_sensor2 <- filter(Phen_all_main_pre, SENSOR_ADDR == "2")                
+
+
+write.csv(Phen_all_main_pre_sensor1, "W:/VF/Pinnaroo/Phenom files/Pre trial/Phenom_pre_trial_merge_jaxs/pre_trial_Pheonm_sensor1.csv", row.names=FALSE)
+write.csv(Phen_all_main_preP_sensor2, "W:/VF/Pinnaroo/Phenom files/Pre trial/Phenom_pre_trial_merge_jaxs/pre_trial_Pheonm_sensor2.csv", row.names=FALSE)
+
+
+#########################################################################################################
