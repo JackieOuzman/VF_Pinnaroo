@@ -239,3 +239,12 @@ write.csv(Phen_all_main_preP_sensor2, "W:/VF/Pinnaroo/Phenom files/Pre trial/Phe
 
 
 #########################################################################################################
+###################################################################################################
+##########         Phenom data post trial  Damian has merged the files ######
+Phenom_post_merge <- read.csv("W://VF/Pinnaroo/Phenom files/Post trial/Pinnaroo Phenom Post merged.csv")
+
+Phenom_post_merge_sensor1 <- filter(Phenom_post_merge, SENSOR_ADDR == "1")
+Phenom_post_merge_sensor2 <- filter(Phenom_post_merge, SENSOR_ADDR == "2")                
+
+write.csv(Phenom_post_merge_sensor1,"W://VF/Pinnaroo/Phenom files/Post trial/merged_jax/post_trial_Pheonm_sensor1.csv", row.names=FALSE)
+write.csv(Phenom_post_merge_sensor2,"W://VF/Pinnaroo/Phenom files/Post trial/merged_jax/post_trial_Pheonm_sensor2.csv", row.names=FALSE)
