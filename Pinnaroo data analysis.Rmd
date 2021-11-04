@@ -161,7 +161,7 @@ include_graphics("W:/VF/Pinnaroo/Biomass_data_maps/Pinnaroo_maps/Pre_trial_bioma
 ```
 
 
-## plot of biomass vs survey data
+## plot of biomass vs survey data pre trial
 
 ```{r pre_trial biomass vs biomass survey, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -292,6 +292,26 @@ datatable(pre_trial_model,
           rownames = FALSE)%>%
            formatRound(c(4:5, 7:10), 2) %>% 
            formatRound(6, 5)
+
+```
+
+
+Need to do this for the phenom data set
+
+## Post trial maps
+
+```{r cc_and phenom post_trial, echo=FALSE, message=FALSE, warning=FALSE}
+
+include_graphics("W:/VF/Pinnaroo/Biomass_data_maps/Pinnaroo_maps/Post_trial_biomass.png")
+
+
+```
+
+
+## plot of biomass vs survey data post trial
+
+```{r post_trial biomass vs biomass survey, echo=FALSE, message=FALSE, warning=FALSE}
+
 
 ```
 
