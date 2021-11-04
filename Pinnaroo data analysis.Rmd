@@ -1,0 +1,27 @@
+---
+title: "Pinnaroo analysis"
+author: "Jackie Ouzman"
+date: "04/11/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r lib, include=FALSE}
+library(tidyverse)
+library(dplyr)
+```
+
+## Loaction of the trial
+
+
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
