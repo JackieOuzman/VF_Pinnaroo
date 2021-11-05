@@ -42,15 +42,23 @@ library(raster)
 
 ## Location of the trial
 
-This information is still to come.
+- Block boundaries drawn based on GPS points
 
-Aim of trial: selective grazing to barley paddock pre harvest
+*- Location of VF information is still to come (5/11/2021).*
 
-Start date:
-End date:
+**Aim of trial:**
 
-Number of animals:
+selective grazing to barley paddock pre harvest
+
+Start date: 07/10/2021
+
+End date: 20/10/2021
+
+Number of animals: 40 (including one bull)
+
 Date of fence moves:
+
+*Insert a map of VF*
 
 
 ```{r location of trial, echo=FALSE, message=FALSE, warning=FALSE}
@@ -63,72 +71,17 @@ Date of fence moves:
 
 
 
-## Biomass readings
+# Biomass 
 
-Pre trial survey
-Crop circle and Phenom survey undertaken by Damian on 06/10/2021
+Biomass survey was taken using Crop circle and Phenom and these were calibrated by field measures of biomass
 
-Post trial survey
-Crop circle and Phenom survey undertaken by Damian on 20/10/2021
-
-**Raw data**
-
-- "\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\Phenom files\Post trial\MAPxxx.CSV"
-- "\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\Phenom files\Pre trial\MAP00xx.CSV"
-
-
-- "\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\CC files\Pre trial\MAP00xx.CSV"
-- "\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\CC files\Post trial\MAP00xx.CSV"
-
-Note the files are merged and for the Phenom the data is split into sensor 1 and 2.
-We have only used sensor 1 for this analysis.
-
-**Rasters** 
-CC Pre Trial
-
-"\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\CC files\Pre trial\CC_NDVI\Vesper\CC_HighDensity_NDVI_PRED_2m.tif"
-"\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\CC files\Pre trial\CC_LAI\Vesper\CC_HighDensity_LAI_PRED_2m.tif"
-"\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\CC files\Pre trial\CC_DIST\Vesper\CC_HighDensity_DIST_PRED_2m.tif"
-
-CC Post Trial
-- "\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\CC files\Post trial\CC_post_trial_NDVI\Vesper\PinarooCCpostmerg_HighDensity_NDVI_PRED_2m.tif"
-- "\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\CC files\Post trial\CC_post_trial_LAI\Vesper\PinarooCCpostmerg_HighDensity_LAI_PRED_2m.tif"
-- "\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\CC files\Post trial\CC_post_trial_DIST\Vesper\PinarooCCpostmerg_HighDensity_DIST_PRED_2m.tif"
-
-
-
-Phenom Pre Trial
-"\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\Phenom files\Pre trial\Phenom_Pre_NDVI\Vesper\pre_trial_Pheonm_sen_HighDensity_NDVI_PRED_2m.tif"
-"\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\Phenom files\Pre trial\Phenom_Pre_LAI\Vesper\pre_trial_Pheonm_sen_HighDensity_LAII_PRED_2m.tif"
-"\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\Phenom files\Pre trial\Phenom_Pre_DIST\Vesper\pre_trial_Pheonm_sen_HighDensity_DIST_PRED_2m.tif"
-
-Phenom Post Trial
-"\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\Phenom files\Post trial\Phenom_post_trial_NDVI\Vesper\post_trial_Pheonm_se_HighDensity_NDVI_PRED_2m.tif"
-"\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\Phenom files\Post trial\Phenom_post_trial_LAI\Vesper\post_trial_Pheonm_se_HighDensity_LAI_PRED_2m.tif"
-"\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\Phenom files\Post trial\Phenom_post_trial_DIST\Vesper\post_trial_Pheonm_se_HighDensity_DIST_PRED_2m.tif"
-
-
-
-Data processing done by Jackie using the following settings:
-
-- Block boundaries created in google earth pro.
-
-- Data cleaned and trimmed using PAT QGIS tools, standard default settings used
-
-- Block boundaries drawn based on GPS points
-
-- Block grid of 2m pixel made
-
-- Vesper used for kriging cleaned data
-
-- Vesper setting include; block kriging with a block size of 10m
-
-- Data in below map is displayed as quantile.
-
-# Biomass measure
+## Biomass field measures
 
 Biomass measured were taken before and after the trial was run.
+
 Dates:
+
+*Damian can you confirm*
 
 
 ```{r biomass pre and post_trial, echo=FALSE, message=FALSE, warning=FALSE}
@@ -151,6 +104,88 @@ datatable(biomass_ave_pre_post,
 ```
 
 
+# Biomass survey 
+
+**Pre trial survey**
+
+Crop circle and Phenom survey undertaken by Damian on 06/10/2021
+
+**Post trial survey**
+
+Crop circle and Phenom survey undertaken by Damian on 20/10/2021
+
+*Damian can you confirm*
+
+**Raw data**
+
+Pre Trial
+
+- `\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\CC files\Pre trial\raw_data`
+- `\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\Phenom files\Pre trial\raw_data`
+
+Post Trial
+
+- `\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\CC files\Post trial\raw_data`
+- `\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\Phenom files\Post trial\raw_data`
+
+Note the files are merged before kriging 
+
+The Phenom the data is split into sensor 1 and 2.
+
+We have only used sensor 1 for this analysis.
+
+We have used NDVI, LAI and DIST, there are other signals / channels that can be use.
+
+At Long Plains we didnt used DIST - perhaps we should?
+
+**Rasters** 
+
+CC Pre Trial 
+
+- `\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\CC files\Pre trial\CC_NDVI\Vesper`
+- `\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\CC files\Pre trial\CC_LAI\Vesper`
+- `\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\CC files\Pre trial\CC_DIST\Vesper`
+
+CC Post Trial
+
+- `\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\CC files\Post trial\CC_post_trial_NDVI\Vesper`
+- `\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\CC files\Post trial\CC_post_trial_LAI\Vesper`
+- `\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\CC files\Post trial\CC_post_trial_DIST\Vesper`
+
+
+
+Phenom Pre Trial
+
+- "\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\Phenom files\Pre trial\Phenom_Pre_NDVI\Vesper
+- "\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\Phenom files\Pre trial\Phenom_Pre_LAI\Vesper
+- "\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\Phenom files\Pre trial\Phenom_Pre_DIST\Vesper
+
+Phenom Post Trial
+
+- `\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\Phenom files\Post trial\Phenom_post_trial_NDVI\Vesper`
+- `\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\Phenom files\Post trial\Phenom_post_trial_LAI\Vesper`
+- `\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\Phenom files\Post trial\Phenom_post_trial_DIST\Vesper`
+
+
+
+Data processing done by Jackie using the following settings:
+
+- Block boundaries created in google earth pro.
+
+- Data cleaned and trimmed using PAT QGIS tools, standard default settings used
+
+
+- Block grid of 2m pixel made
+
+- Vesper used for kriging cleaned data
+
+- Vesper setting include; block kriging with a block size of 10m
+
+- Data in below map is displayed as quantile.
+
+
+
+
 ## Pre trial maps
 
 ```{r cc_and phenom pre_trial, echo=FALSE, message=FALSE, warning=FALSE}
@@ -162,6 +197,11 @@ include_graphics("W:/VF/Pinnaroo/Biomass_data_maps/Pinnaroo_maps/Pre_trial_bioma
 
 
 ## plot of biomass vs survey data pre trial
+
+Linnear model 
+
+
+
 
 ```{r pre_trial biomass vs biomass survey, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -189,6 +229,7 @@ pivot_longer(cols = starts_with("Survey"),
              names_to = "survey_type",
              values_to = "value")
 
+#pre_trial_biomass_long %>%  group_by(survey_type) %>%  summarise(count = n()) #22
 
 #http://www.sthda.com/english/wiki/ggplot2-scatter-plots-quick-start-guide-r-software-and-data-visualization
 # method : smoothing method to be used. Possible values are lm, glm, gam, loess, rlm.
@@ -200,16 +241,17 @@ pivot_longer(cols = starts_with("Survey"),
 
 plot1 <- pre_trial_biomass_long %>%
   #filter(survey_type == "Survey_CC_NDVI") %>% 
-  ggplot(aes(x = BM__kg___H  , y = value)) +
+  ggplot(aes(x = value  , y =  BM__kg___H)) +
   geom_point()+
-  geom_smooth(method = lm, se = FALSE)+
+  geom_smooth(mapping = aes(x = value  , y =  BM__kg___H,group = survey_type),
+              method = lm, se = FALSE)+
   #geom_smooth(se = FALSE)+
-  facet_wrap(.~survey_type, scales = "free_y")+
+  facet_wrap(.~survey_type, scales = "free_x")+
   theme_classic() +
   theme(axis.text.x = element_text(angle = 90))+
   labs(
-    x = paste0("biomass cuts "),
-    y = "survey data",
+    x = paste0("survey data"),
+    y = "biomass cuts kg / ha",
     title = "Pre trial data"
   )
 plot1
@@ -220,7 +262,10 @@ plot1
 
 ## The fit of models biomass vs survey data pre trial
 
-```{r pre_trial biomass vs biomass survey model fit, echo=FALSE, message=FALSE, warning=FALSE}
+
+
+
+```{r pre_trial biomass vs biomass survey model fit1, echo=FALSE, message=FALSE, warning=FALSE}
 
 
 
@@ -235,6 +280,14 @@ pre_trial_biomass_long_CC_LAI_pre <- pre_trial_biomass_long %>%
 pre_trial_biomass_long_CC_DIST_pre <- pre_trial_biomass_long %>% 
   filter(survey_type == "Survey_CC_DIST")
 
+pre_trial_biomass_long_Phen_NDVI_pre <- pre_trial_biomass_long %>% 
+  filter(survey_type == "Survey_Phen_NDVI")
+pre_trial_biomass_long_Phen_LAI_pre <- pre_trial_biomass_long %>% 
+  filter(survey_type == "Survey_Phen_LAI")
+pre_trial_biomass_long_Phen_DIST_pre <- pre_trial_biomass_long %>% 
+  filter(survey_type == "Survey_Phen_DIST")
+
+
 
 cor_pre_CC_NDVI <- cor(pre_trial_biomass_long_CC_NDVI_pre$value, 
                        pre_trial_biomass_long_CC_NDVI_pre$BM__kg___H)
@@ -243,23 +296,36 @@ cor_pre_CC_LAI <- cor(pre_trial_biomass_long_CC_LAI_pre$value,
 cor_pre_CC_DIST <- cor(pre_trial_biomass_long_CC_DIST_pre$value, 
                        pre_trial_biomass_long_CC_DIST_pre$BM__kg___H) 
 
+cor_pre_Phen_NDVI <- cor(pre_trial_biomass_long_Phen_NDVI_pre$value, 
+                       pre_trial_biomass_long_Phen_NDVI_pre$BM__kg___H)
+cor_pre_Phen_LAI <- cor(pre_trial_biomass_long_Phen_LAI_pre$value, 
+                      pre_trial_biomass_long_Phen_LAI_pre$BM__kg___H)
+cor_pre_Phen_DIST <- cor(pre_trial_biomass_long_Phen_DIST_pre$value, 
+                       pre_trial_biomass_long_Phen_DIST_pre$BM__kg___H) 
+
+
 #Make a table with the analysis correlation table
 
-pre_trial_table <- data.frame(survey  = c("NDVI", "LAI", "DIST"),
-                              survey_type  = c("Crop Circle", "Crop Circle", "Crop Circle"),
-                                correlation = c(cor_pre_CC_NDVI, cor_pre_CC_LAI, cor_pre_CC_DIST),
-                                timing  = c("pre_trial", "pre_trial", "pre_trial"))
+pre_trial_table <- data.frame(survey  = c("NDVI", "LAI", "DIST", "NDVI", "LAI", "DIST"),
+                              survey_type  = c("Crop Circle", "Crop Circle", "Crop Circle", "Phenom","Phenom","Phenom" ),
+                              correlation = c(cor_pre_CC_NDVI, cor_pre_CC_LAI, cor_pre_CC_DIST,cor_pre_Phen_NDVI, cor_pre_Phen_LAI, cor_pre_Phen_DIST ),
+                              timing  = c("pre_trial", "pre_trial", "pre_trial", "pre_trial", "pre_trial", "pre_trial"))
 
 
 
-model_pre_CC_NDVI <- summary(lm(value ~ BM__kg___H, 
-                        data = pre_trial_biomass_long_CC_NDVI_pre))
-model_pre_CC_LAI <- summary(lm(value ~ BM__kg___H, 
-                        data = pre_trial_biomass_long_CC_LAI_pre))
-model_pre_CC_DIST <- summary(lm(value ~ BM__kg___H, 
-                        data = pre_trial_biomass_long_CC_DIST_pre))
+model_pre_CC_NDVI <- summary(lm(BM__kg___H ~ value, 
+                                data = pre_trial_biomass_long_CC_NDVI_pre))
+model_pre_CC_LAI <- summary(lm(BM__kg___H ~ value, 
+                               data = pre_trial_biomass_long_CC_LAI_pre))
+model_pre_CC_DIST <- summary(lm(BM__kg___H ~ value, 
+                                data = pre_trial_biomass_long_CC_DIST_pre))
 
-
+model_pre_Phen_NDVI <- summary(lm(BM__kg___H ~ value, 
+                                data = pre_trial_biomass_long_Phen_NDVI_pre))
+model_pre_Phen_LAI <- summary(lm(BM__kg___H ~ value, 
+                               data = pre_trial_biomass_long_Phen_LAI_pre))
+model_pre_Phen_DIST <- summary(lm(BM__kg___H ~ value, 
+                                data = pre_trial_biomass_long_Phen_DIST_pre))
 
 # model_pre_CC_NDVI
 # model_pre_CC_NDVI$coefficients[1,1] #b0 Intercept
@@ -270,33 +336,73 @@ model_pre_CC_DIST <- summary(lm(value ~ BM__kg___H,
 
 #add this info to the pre_trial_table
 
-pre_trial_model_table <- data.frame(survey  = c("NDVI", "LAI", "DIST"),
-                                    Intercept = c(model_pre_CC_NDVI$coefficients[1,1], model_pre_CC_LAI$coefficients[1,1], model_pre_CC_DIST$coefficients[1,1]),
-                                    Slope = c(model_pre_CC_NDVI$coefficients[2,1], model_pre_CC_LAI$coefficients[2,1], model_pre_CC_DIST$coefficients[2,1]),
-                                    RSE = c(model_pre_CC_NDVI$sigma, model_pre_CC_LAI$sigma, model_pre_CC_DIST$sigma),
-                                    R_Square = c(model_pre_CC_NDVI$r.squared, model_pre_CC_LAI$r.squared, model_pre_CC_DIST$r.squared),
-                                    Adj_R_Square = c(model_pre_CC_NDVI$adj.r.squared, model_pre_CC_LAI$adj.r.squared,model_pre_CC_DIST$adj.r.squared)
+pre_trial_model_table <- data.frame(survey  = c("NDVI", "LAI", "DIST", "NDVI", "LAI", "DIST"),
+                                    survey_type  = c("Crop Circle", "Crop Circle", "Crop Circle", "Phenom","Phenom","Phenom" ),
+                                    
+                                    Intercept = c(model_pre_CC_NDVI$coefficients[1,1], model_pre_CC_LAI$coefficients[1,1], model_pre_CC_DIST$coefficients[1,1],
+                                                  model_pre_Phen_NDVI$coefficients[1,1], model_pre_Phen_LAI$coefficients[1,1], model_pre_Phen_DIST$coefficients[1,1]),
+                                    
+                                    Slope = c(model_pre_CC_NDVI$coefficients[2,1], model_pre_CC_LAI$coefficients[2,1], model_pre_CC_DIST$coefficients[2,1],
+                                              model_pre_Phen_NDVI$coefficients[2,1], model_pre_Phen_LAI$coefficients[2,1], model_pre_Phen_DIST$coefficients[2,1]),
+                                    
+                                    RSE = c(model_pre_CC_NDVI$sigma, model_pre_CC_LAI$sigma, model_pre_CC_DIST$sigma,
+                                            model_pre_Phen_NDVI$sigma, model_pre_Phen_LAI$sigma, model_pre_Phen_DIST$sigma),
+                                    
+                                    R_Square = c(model_pre_CC_NDVI$r.squared, model_pre_CC_LAI$r.squared, model_pre_CC_DIST$r.squared,
+                                                 model_pre_Phen_NDVI$r.squared, model_pre_Phen_LAI$r.squared, model_pre_Phen_DIST$r.squared),
+                                    
+                                    Adj_R_Square = c(model_pre_CC_NDVI$adj.r.squared, model_pre_CC_LAI$adj.r.squared,model_pre_CC_DIST$adj.r.squared,
+                                                     model_pre_Phen_NDVI$adj.r.squared, model_pre_Phen_LAI$adj.r.squared,model_pre_Phen_DIST$adj.r.squared)
 )
-                                    
-                                    
+
+
 
 
 pre_trial_model <- left_join(pre_trial_table, pre_trial_model_table)
 
 pre_trial_model <- pre_trial_model[, c(4, 1, 2, 3, 5,6,7,8)]
 
-
 datatable(pre_trial_model,
           options = list(dom = 't'),#removes the search bar
           caption = 'Details of the models.',
           rownames = FALSE)%>%
-           formatRound(c(4:5, 7:10), 2) %>% 
-           formatRound(6, 5)
+           formatRound(c(4,8), 2) %>% 
+           formatRound(5:7, 0)
 
 ```
 
 
-Need to do this for the phenom data set
+The Phenom DIST has the best correlations but the R2 is low 0.32.
+With this data set I would be reluctant converting survey data to biomass in Kg per ha.
+
+But I guess if you had to this would look like this:
+
+`summary(lm( BM__kg___H~  value, data = pre_trial_biomass_long_Phen_DIST_pre))`
+
+
+```{r pre_trial biomass vs biomass survey best model fit, echo=FALSE, message=FALSE, warning=FALSE}
+pre_trial_biomass_long_Phen_DIST_pre <- pre_trial_biomass_long %>% 
+  filter(survey_type == "Survey_Phen_DIST")
+
+summary(lm( BM__kg___H~  value, data = pre_trial_biomass_long_Phen_DIST_pre))
+```
+
+### Best option for converting survey data to biomass in kg/ha -  PRE TRIAL
+
+biomass = intercept + slope * survey
+
+biomass = -22649.9 + 593.8 * Phenom Dist survey value
+
+
+
+Is this correct? 
+
+Phenom Dist survey value value of 44 will be converted to biomass 3477
+
+Phenom Dist survey value value of 50 will be converted to biomass 7040
+
+
+
 
 ## Post trial maps
 
@@ -308,10 +414,361 @@ include_graphics("W:/VF/Pinnaroo/Biomass_data_maps/Pinnaroo_maps/Post_trial_biom
 ```
 
 
-## plot of biomass vs survey data post trial
+## Plot of biomass vs survey data post trial
 
 ```{r post_trial biomass vs biomass survey, echo=FALSE, message=FALSE, warning=FALSE}
+
+pre_post_trial_biomass_all <-
+  read.csv(
+    "W:/VF/Pinnaroo/Biomass_data_maps/Pinnaroo_maps/extract_grid_pts_pre_trial_all.csv"
+  )
+#select only the pre trial data pts.
+
+#select post trial data
+post_trial_biomass <- pre_post_trial_biomass_all %>%
+  dplyr::select(
+    FID,
+    timing,
+    ID,
+    Lat,
+    Long,
+    BM__kg___H,
+    Post_CC_ND,
+    Post_CC_LA,
+    Post_CC_DI,
+    Post_Ph_ND,
+    Post_Ph_LA,
+    Post_Ph_DI
+  )
+
+
+post_trial_biomass <- post_trial_biomass %>%
+  rename(
+    Survey_Phen_DIST = Post_Ph_DI,
+    Survey_Phen_LAI = Post_Ph_LA,
+    Survey_Phen_NDVI = Post_Ph_ND,
+    Survey_CC_DIST = Post_CC_DI,
+    Survey_CC_LAI = Post_CC_LA,
+    Survey_CC_NDVI = Post_CC_ND
+  )
+
+post_trial_biomass <- post_trial_biomass %>%
+  filter(timing == "post_trial")
+
+
+#let rearragne the data so I can do a facet wrap
+post_trial_biomass_long <- post_trial_biomass %>%
+  pivot_longer(cols = starts_with("Survey"),
+               names_to = "survey_type",
+               values_to = "value")
+
+
+#post_trial_biomass_long %>%  group_by(survey_type) %>%  summarise(count = n())
+
+
+
+#http://www.sthda.com/english/wiki/ggplot2-scatter-plots-quick-start-guide-r-software-and-data-visualization
+# method : smoothing method to be used. Possible values are lm, glm, gam, loess, rlm.
+# method = “loess”: This is the default value for small number of observations. It computes a smooth local regression. You can read more about loess using the R code ?loess.
+# method =“lm”: It fits a linear model. Note that, it’s also possible to indicate the formula as formula = y ~ poly(x, 3) to specify a degree 3 polynomial.
+# se : logical value. If TRUE, confidence interval is displayed around smooth.
+# fullrange : logical value. If TRUE, the fit spans the full range of the plot
+# level : level of confidence interval to use. Default value is 0.95
+
+plot2 <- post_trial_biomass_long %>%
+  ggplot(aes(x = value  , y =  BM__kg___H)) +
+  geom_point()+
+  geom_smooth(mapping = aes(x = value  , y =  BM__kg___H,group = survey_type),
+              method = lm, se = FALSE)+
+  #geom_smooth(se = FALSE)+
+  facet_wrap(.~survey_type, scales = "free_x")+
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 90))+
+  labs(
+    x = paste0("survey data"),
+    y = "biomass cuts kg / ha",
+    title = "Post trial data"
+  )
+plot2
+
+post_trial_biomass_long_CC_NDVI_post <- post_trial_biomass_long %>%
+  filter(survey_type == "Survey_CC_NDVI")
+post_trial_biomass_long_CC_LAI_post <- post_trial_biomass_long %>%
+  filter(survey_type == "Survey_CC_LAI")
+post_trial_biomass_long_CC_DIST_post <- post_trial_biomass_long %>%
+  filter(survey_type == "Survey_CC_DIST")
+
+post_trial_biomass_long_Phen_NDVI_post <-
+  post_trial_biomass_long %>%
+  filter(survey_type == "Survey_Phen_NDVI")
+post_trial_biomass_long_Phen_LAI_post <-
+  post_trial_biomass_long %>%
+  filter(survey_type == "Survey_Phen_LAI")
+post_trial_biomass_long_Phen_DIST_post <-
+  post_trial_biomass_long %>%
+  filter(survey_type == "Survey_Phen_DIST")
+
+
+
+cor_post_CC_NDVI <- cor(
+  post_trial_biomass_long_CC_NDVI_post$value,
+  post_trial_biomass_long_CC_NDVI_post$BM__kg___H
+)
+cor_post_CC_LAI <- cor(
+  post_trial_biomass_long_CC_LAI_post$value,
+  post_trial_biomass_long_CC_LAI_post$BM__kg___H
+)
+cor_post_CC_DIST <- cor(
+  post_trial_biomass_long_CC_DIST_post$value,
+  post_trial_biomass_long_CC_DIST_post$BM__kg___H
+)
+
+cor_post_Phen_NDVI <-
+  cor(
+    post_trial_biomass_long_Phen_NDVI_post$value,
+    post_trial_biomass_long_Phen_NDVI_post$BM__kg___H
+  )
+cor_post_Phen_LAI <-
+  cor(
+    post_trial_biomass_long_Phen_LAI_post$value,
+    post_trial_biomass_long_Phen_LAI_post$BM__kg___H
+  )
+cor_post_Phen_DIST <-
+  cor(
+    post_trial_biomass_long_Phen_DIST_post$value,
+    post_trial_biomass_long_Phen_DIST_post$BM__kg___H
+  ) 
+
+
+#Make a table with the analysis correlation table
+
+post_trial_table <-
+  data.frame(
+    survey  = c("NDVI", "LAI", "DIST", "NDVI", "LAI", "DIST"),
+    survey_type  = c(
+      "Crop Circle",
+      "Crop Circle",
+      "Crop Circle",
+      "Phenom",
+      "Phenom",
+      "Phenom"
+    ),
+    correlation = c(
+      cor_post_CC_NDVI,
+      cor_post_CC_LAI,
+      cor_post_CC_DIST,
+      cor_post_Phen_NDVI,
+      cor_post_Phen_LAI,
+      cor_post_Phen_DIST
+    ),
+    timing  = c(
+      "post_trial",
+      "post_trial",
+      "post_trial",
+      "post_trial",
+      "post_trial",
+      "post_trial"
+    )
+  )
+
+
+
+model_post_CC_NDVI <- summary(lm(BM__kg___H ~ value,
+                                 data = post_trial_biomass_long_CC_NDVI_post))
+model_post_CC_LAI <- summary(lm(BM__kg___H ~ value,
+                                data = post_trial_biomass_long_CC_LAI_post))
+model_post_CC_DIST <- summary(lm(BM__kg___H ~ value,
+                                 data = post_trial_biomass_long_CC_DIST_post))
+
+model_post_Phen_NDVI <- summary(lm(BM__kg___H ~ value,
+                                   data = post_trial_biomass_long_Phen_NDVI_post))
+model_post_Phen_LAI <- summary(lm(BM__kg___H ~ value,
+                                  data = post_trial_biomass_long_Phen_LAI_post))
+model_post_Phen_DIST <- summary(lm(BM__kg___H ~ value,
+                                   data = post_trial_biomass_long_Phen_DIST_post))
+
+# model_post_CC_NDVI
+# model_post_CC_NDVI$coefficients[1,1] #b0 Intercept
+# model_post_CC_NDVI$coefficients[2,1] #b1 slope
+# model_post_CC_NDVI$sigma #(Residual Standard Error from Linear Regression Model)
+# model_post_CC_NDVI$adj.r.squared
+# model_post_CC_NDVI$r.squared
+
+#add this info to the post_trial_table
+
+post_trial_model_table <-
+  data.frame(
+    survey  = c("NDVI", "LAI", "DIST", "NDVI", "LAI", "DIST"),
+    survey_type  = c(
+      "Crop Circle",
+      "Crop Circle",
+      "Crop Circle",
+      "Phenom",
+      "Phenom",
+      "Phenom"
+    ),
+    
+    Intercept = c(
+      model_post_CC_NDVI$coefficients[1, 1],
+      model_post_CC_LAI$coefficients[1, 1],
+      model_post_CC_DIST$coefficients[1, 1],
+      model_post_Phen_NDVI$coefficients[1, 1],
+      model_post_Phen_LAI$coefficients[1, 1],
+      model_post_Phen_DIST$coefficients[1, 1]
+    ),
+    
+    Slope = c(
+      model_post_CC_NDVI$coefficients[2, 1],
+      model_post_CC_LAI$coefficients[2, 1],
+      model_post_CC_DIST$coefficients[2, 1],
+      model_post_Phen_NDVI$coefficients[2, 1],
+      model_post_Phen_LAI$coefficients[2, 1],
+      model_post_Phen_DIST$coefficients[2, 1]
+    ),
+    
+    RSE = c(
+      model_post_CC_NDVI$sigma,
+      model_post_CC_LAI$sigma,
+      model_post_CC_DIST$sigma,
+      model_post_Phen_NDVI$sigma,
+      model_post_Phen_LAI$sigma,
+      model_post_Phen_DIST$sigma
+    ),
+    
+    R_Square = c(
+      model_post_CC_NDVI$r.squared,
+      model_post_CC_LAI$r.squared,
+      model_post_CC_DIST$r.squared,
+      model_post_Phen_NDVI$r.squared,
+      model_post_Phen_LAI$r.squared,
+      model_post_Phen_DIST$r.squared
+    ),
+    
+    Adj_R_Square = c(
+      model_post_CC_NDVI$adj.r.squared,
+      model_post_CC_LAI$adj.r.squared,
+      model_post_CC_DIST$adj.r.squared,
+      model_post_Phen_NDVI$adj.r.squared,
+      model_post_Phen_LAI$adj.r.squared,
+      model_post_Phen_DIST$adj.r.squared
+    )
+  )
+
+
+
+
+post_trial_model <-
+  left_join(post_trial_table, post_trial_model_table)
+
+post_trial_model <- post_trial_model[, c(4, 1, 2, 3, 5, 6, 7, 8)]
+
+datatable(
+  post_trial_model,
+  options = list(dom = 't'),
+  #removes the search bar
+  caption = 'Details of the models.',
+  rownames = FALSE
+) %>%
+  formatRound(c(4, 8), 2) %>%
+  formatRound(5:7, 0)
 
 
 ```
 
+### Best option for converting survey data to biomass in kg/ha -  POST TRIAL
+
+The Phenom DIST has the best correlations but the R2 is low 0.32.
+With this data set I would be reluctant converting survey data to biomass in Kg per ha.
+
+But I guess if you had to this would look like this:
+
+`summary(lm( BM__kg___H~  value, data = pre_trial_biomass_long_Phen_DIST_pre))`
+
+
+```{r post_trial biomass vs biomass survey best model fit, echo=FALSE, message=FALSE, warning=FALSE}
+post_trial_biomass_long_Phen_DIST_pre <- post_trial_biomass_long %>% 
+  filter(survey_type == "Survey_Phen_DIST")
+
+summary(lm( BM__kg___H~  value, data = post_trial_biomass_long_Phen_DIST_pre))
+```
+
+
+
+biomass = intercept + slope * survey
+
+biomass = -23,519 + 609	 * Phenom Dist survey value
+
+
+
+Is this correct? 
+
+Phenom Dist survey value value of 44 will be converted to biomass 3277
+
+Phenom Dist survey value value of 50 will be converted to biomass 6931 
+
+
+
+### Pre and post grids of biomass
+
+Converted using the values and grids outlined above.
+
+```{r phenom DIST converted to biomass pre post_trial, echo=FALSE, message=FALSE, warning=FALSE}
+
+include_graphics("W:/VF/Pinnaroo/Biomass_data_maps/Pinnaroo_maps/Pre Post_trial_biomass_DIST.png")
+
+
+```
+
+
+# Animal weights
+
+```{r animal wts, echo=FALSE, message=FALSE, warning=FALSE}
+animal_wts <- read_excel("W:/VF/Pinnaroo/Animal_wts/Usable animal weights.xlsx", sheet ="merged_dataID_wts" )
+
+
+
+animal_wts <- animal_wts %>%
+  dplyr::select(deviceUIDHex,
+                deviceName,
+                date_in = "Date weight in",
+                date_out ="date weight out",
+                wt_diff ="Weight difference")
+
+
+animal_wts <- animal_wts %>%
+  filter(!is.na(deviceName))
+#animal_wts$date_out - animal_wts$date_in
+
+animal_wts_stats <- animal_wts %>% 
+  group_by() %>% 
+  summarise(sum_wt_gain = sum(wt_diff, na.rm = TRUE),
+            Av_wt_gain = mean(wt_diff, na.rm = TRUE),
+            std_dev_wt_gain = sd(wt_diff, na.rm = TRUE),
+            Av_wt_gain_per_day = (mean(wt_diff, na.rm = TRUE))/13,
+            count = n()
+  )
+
+
+datatable(
+  animal_wts_stats,
+  options = list(dom = 't'),
+  #removes the search bar
+  caption = 'Weight gain kg',
+  rownames = FALSE,
+  colnames = c('Total for mob', 'Average per animal', 'Stdev per animal', 'Av per animal per day','Count') )%>%   
+    formatRound(c(1:4), 2)
+
+```
+
+
+```{r animal wts plot, echo=FALSE, message=FALSE, warning=FALSE}
+ggplot(animal_wts, aes(as.factor(deviceName), wt_diff)) +
+  geom_col()+
+  theme_bw()+
+  theme(axis.text.x=element_blank(),
+  axis.ticks = element_blank())+
+  labs(title="Animal weight gain after 13 days",
+       x ="Animal", y = "Weight gain (kg)")
+```
+  
+  
