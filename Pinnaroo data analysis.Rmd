@@ -772,3 +772,17 @@ ggplot(animal_wts, aes(as.factor(deviceName), wt_diff)) +
 ```
   
   
+## Extra Notes
+  
+-  Track which animal spent time outside the VF and ID them, noncompliant.
+-  Compare early behaviour (the behaviour in the fisrt couple of days) of these of these noncompliant vs main herd.
+-  The numbers should be approx 30/40 main herd, 10/40 or 6-7/40 were noncompliant.
+-  Note at time Heath re orienated these noncompliant animals (back into the VF area).
+
+-  Can we identify hotspots outside the VF area, if so do they match anything in the biomass data?
+-  Exclude the Bull from the start.
+
+- Weed data for the main paddock, we should have position GPS inside VF and outside VF
+- 
+
+  
