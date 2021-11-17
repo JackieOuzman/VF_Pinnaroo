@@ -44,11 +44,11 @@ library(raster)
 
 - Block boundaries drawn based on GPS points
 
-*- Location of VF information is still to come (5/11/2021).*
+
 
 **Aim of trial:**
 
-selective grazing to barley paddock pre harvest
+selective grazing to barley paddock to frost effected part of the paddock.
 
 Start date: 07/10/2021
 
@@ -58,13 +58,30 @@ Number of animals: 40 (including one bull)
 
 Date of fence moves:
 
-*Insert a map of VF*
 
+
+| vp_name	        | boundary_id	| boundary_created	| activation_name                        |
+| ----------------| ----------- |----------------   |----------------------------------------|
+| VP01 (Training)	| 2557	      | 7/10/2021 5:11	  | Oct-07-1629-ACTIVATION-VP01 (Training) |
+| VP02	          | 2556        |	7/10/2021 5:11    |	Oct-11-1253-ACTIVATION-VP02            |
+| VP03            |	2561        |	7/10/2021 5:19    |	Oct-12-0853-ACTIVATION-VP03            |
+| VP03-2 Final    |	2590        |	14/10/2021 6:59	  | Oct-14-1801-ACTIVATION-VP03-2 Final    | 
+| VP03-2 Final    |	2590        |	14/10/2021 6:59	  | Oct-15-1035-ACTIVATION-VP03-2 Final    |
+| VP03-2 Final    |	2590        |	14/10/2021 6:59	  | Oct-15-1520-ACTIVATION-VP03-2 Final    |
+| VP04-1 Move     | 2584        |	14/10/2021 4:40	  | Oct-17-0927-ACTIVATION-VP04-1 Move     |
+
+Some of these fences seem to be almost the same.
+
+I have used 
+
+- VP 01
+- VP 02
+- VP 03
+- VP 04-1
 
 ```{r location of trial, echo=FALSE, message=FALSE, warning=FALSE}
-# This information is still to come
-#include_graphics("xx.png")
 
+include_graphics("W:/VF/Pinnaroo/activation_VF/VF_boundary_details.png")
 
 ```
 
@@ -73,15 +90,18 @@ Date of fence moves:
 
 # Biomass 
 
-Biomass survey was taken using Crop circle and Phenom and these were calibrated by field measures of biomass
+Biomass survey was taken using Crop Circle ACS-430 and Crop Circle Phenom (ACS-430 with DAS43X, Holland Scientific, Lincoln, NE, USA).
+
+These were calibrated by field measures of biomass.
+ 
 
 ## Biomass field measures
 
 Biomass measured were taken before and after the trial was run.
 
-Dates:
+Dates: 06/10/2021 and 20/10/2021
 
-*Damian can you confirm*
+
 
 
 ```{r biomass pre and post_trial, echo=FALSE, message=FALSE, warning=FALSE}
@@ -156,9 +176,9 @@ CC Post Trial
 
 Phenom Pre Trial
 
-- "\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\Phenom files\Pre trial\Phenom_Pre_NDVI\Vesper
-- "\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\Phenom files\Pre trial\Phenom_Pre_LAI\Vesper
-- "\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\Phenom files\Pre trial\Phenom_Pre_DIST\Vesper
+- `\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\Phenom files\Pre trial\Phenom_Pre_NDVI\Vesper`
+- `\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\Phenom files\Pre trial\Phenom_Pre_LAI\Vesper`
+- `\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Biomass_data_maps\Phenom files\Pre trial\Phenom_Pre_DIST\Vesper`
 
 Phenom Post Trial
 
@@ -718,6 +738,74 @@ include_graphics("W:/VF/Pinnaroo/Biomass_data_maps/Pinnaroo_maps/Pre Post_trial_
 
 
 ```
+
+### Pre and post grids of biomass distplay the VF area only
+
+
+```{r converted to biomass pre post_trial with VF, echo=FALSE, message=FALSE, warning=FALSE}
+
+include_graphics("W:/VF/Pinnaroo/Biomass_data_maps/Pinnaroo_maps/Pre Post_trial_biomass_DIST with VF.png")
+
+
+```
+
+
+### Notes / observation from the above maps.
+
+- There is a big difference between the biomass pre and post trial.
+- Pre trial within the VF there are patches of higher biomass long the hard fence line to the south,
+especially in the south eastern corner.
+- Also higher biomass in the north west corner.
+- Although these relatively higher patches remain in the post trial biomass map.
+- The difference map indicates that the patches of high biomass before the trial were the most grazed area of the paddock.
+- Along the southern fence line a an area of the paddock the animals are unlikely to receive any cues, as the VF boundaries extend beyond the hard fence.
+- Areas of light grazing of note is the small triangle on the northern VF between VF 1 and VF3. 
+
+| Summary Stat for VF area (from .tif files)	        | 
+| ------- | ----------|-------------|
+| stat    |Pre trial  | Post trail	|
+| min     |3030       | 676	        |
+| max     |9215       | 5299        |	
+| Mean    |59356      |2831         |	
+| Std Dev |1029       |812	        | 
+
+
+
+
+# Weeds data
+samples collected 2/11/2021
+
+
+```{r converted to biomass post_trial with VF and broome data, echo=FALSE, message=FALSE, warning=FALSE}
+
+include_graphics("W:/VF/Pinnaroo/Biomass_data_maps/Pinnaroo_maps/Broome sampling with VF.png")
+
+
+```
+
+### Notes / observation from the above maps.
+
+- larger patches of Broome in VF 4 and outside VF area
+- Broome patches are located in the southern area
+- More patches of Broome inside fence. Not sure how meaningful this is?
+- On averages the patches are larger inside VF
+- Avearge number of plants per patch is less inside VF
+- Avearge heads on ground in less inside VF. Not sure how meaningful this is?
+
+| Summary Stat Broome samples 	        | 
+| ------- | ----------|-------------|
+| stats                          |Inside VF  | Outside VF	  |
+| sum of size of all patches      |13.2       | 10.5	        |
+| Average of size of patches      |1.7        | 1.5	        |
+| count of patches               |8          | 7            |	
+| Average plants per patch       |25         |35            |	
+| Average heads on ground       |26         |28           |
+
+
+More detail here, not sure what aim of this maeaure was.
+** Rick can you confirm **
+
+- `W:\VF\Pinnaroo\Biomass_data_maps\Pre and Post trial biomass\Pinnaroo Pre_Post Biomass cuts.xlsx`
 
 
 # Animal weights
