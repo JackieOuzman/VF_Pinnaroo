@@ -816,6 +816,173 @@ More detail here, not sure what aim of this maeaure was.
 
 
 
+## Background information on animal collar data from Gallagher
+
+
+The chief data scientist/ data analytics manager is:
+
+
+Dr. Shiva Pratap Gopakumar | Data Scientist | eShepherd
+Gallagher eShepherd Pty Ltd
+1100-1102 Toorak Road, Camberwell, VIC, 3124
+DDI +61 3 8849 8600 | MOB +61 426 092 143
+EMAIL shiva.gopakumar@gallagher.com | WEB www.gallagher.com
+
+
+
+
+Every 10 mins generates a new row of data.
+
+This can be viewed from the timeOfEvent column.
+
+**timeOfEvent**
+
+Note that this timeOfEvent has a date and time stamp which is in GMT.
+
+The *timeOfEvent* will need to be converted to local time.
+Which is 10.5 hrs difference (during daylight saving starts 3rd Oct - so this is correct for our dataset)
+
+**GPS**
+
+The GPS data is a snapshot of the location of the animals in a 10 min window.
+
+Data columns that are supplied:
+
+- *gpsData.lat*	
+- *gpsData.lng*
+- *gpsData.velocity_cm_s*	
+- *gpsData.hdop_deci*	
+
+I will use the lat and long column to create a location of the animal in the 10 min window.
+
+The accuracy of this reading can be viewed within this 10 min window.
+
+
+In other years we have calculated the velocity but I am not sure if we need this now and how would it work?
+
+I am also not sure about the use of the velocity reading, how would this be calculated if only one GPS record was logged every 10mins? 
+
+
+**Stimuli - cue and audio readings**
+
+The *cumulativeAudioCount* and	*cumulativeShockCount* columns are a running total of how many stimuli the animal has received since the start of the trial, and is re calculated every 10 mins.
+
+It appears that the increments are not reset when a new fence is implement.
+Instead its just keeps cummulating.
+
+**Device details**
+
+The *deviceName* is the name of the collar, more details about the mob can be found on the shared drive.
+
+
+- `\\FSSA2-ADL\clw-share1\Microlab\VF\Pinnaroo\Animal_wts\Usable animal weights.xlsx`
+- tab merged_dataID_wts
+
+There is another columns which has information about the device this is called *deviceUIDHex*.
+
+
+
+
+**Virtual Fence**
+
+
+There is a column which is called *minDistanceToIZ*, which is the distance of the animal to the VF.
+
+I am not sure if this is the min distance the animal got to the fence in the 10 min window or its the distance calculated from the logged GPS point in the file in the 10 mins window.
+
+If it is the min distance the animal got to and not just the distance from the fence in the 'snap shot' this would be useful.
+
+Column called *fencesID* is the name of the fence.
+
+
+| fence ID in GPS data 	                | 
+| ----------          |-------------    |
+|   ID in GPS data    | ID for mapping	|
+|   165               | 	xx            |
+|   1ab95             | 	xx            |
+|   1d10b             | 	xx            |
+|   1df99             | 	xx            |
+|   1f076             | 	xx            |
+|   1f6da             | 	xx            |
+|   NULL              | 	xx            |
+
+
+       
+
+If the *fencesID* is NULL then the *minDistanceToIZ* is also NULL.
+
+If the *fencesID* is blank then the *minDistanceToIZ* is also NULL or has a value there are only 2 of these.
+
+
+*"If the values in “fenceID” column as blank, this means there is no active virtual fence for that neckband yet. Therefore, if you are performing some analysis related to virtual fencing, you can ignore those rows with blank fenceIDs."*
+
+
+**Animal activity**
+
+There are 3 columns that relate to the 
+
+- *resting%*	
+
+- *moving%*
+
+- *grazing%* 
+
+
+
+The first 3 should add up to 100% and this is a sum value for the 10 min of time.
+
+For example in the 10 min window the animals has spent 37% of the time resting, 30% moving and 33% grazing.
+
+
+
+
+
+
+
+
+
+# Data manipulation 
+
+
+## Step 1 bring in the raw data and set date and time formats
+
+
+I want to make a clm that will help identify what part of the paddock the cows are allowed to graze in.
+
+For VF 1 - 4 this is easy.
+The data has an clm with 'fence ID', so when a VF is active this clm will have the fence ID value in it.
+There is a problem with some logged points, the fence ID clm is blank.
+I assume this is happening because the VF is deactivated.
+Agersens suggested "For the VF dataset only retaining data points that have an associated fence ID".
+
+
+
+
+Add date column - this is has no rounding and is just the date extracted from the local time column
+
+
+
+
+I have also filter out data within a date and time range (not sure about the time)
+
+between "2021-10-07 05:33:00" to "2020-10-20 xx:xx:00" GTM
+between "2021-10-07 16:03:00" to "2020-10-20 08:54:00" localtime ?? check the end time
+
+
+```{r bring in the data week 1, include=FALSE}
+animal_GPS_data <- read.csv("W:/VF/Pinnaroo/animal behaviour data/raw_data/CSIRO_Pinnaroo.csv")
+
+
+
+animal_GPS_data <- animal_GPS_data %>% 
+  mutate(GMT = ymd_hms(timeOfEvent, tz = "GMT"))
+
+animal_GPS_data <- animal_GPS_data %>% 
+  mutate(local_time = with_tz(GMT, tz = "Australia/Adelaide"))
+
+```
+
+
 
 # Animal weights
 
