@@ -969,6 +969,10 @@ between "2021-10-07 05:33:00" to "2020-10-20 xx:xx:00" GTM
 between "2021-10-07 16:03:00" to "2020-10-20 08:54:00" localtime ?? check the end time
 
 
+
+#### also check the calulation for this - perhaps a dummy file might be good
+
+
 ```{r bring in the data week 1, include=FALSE}
 animal_GPS_data <- read.csv("W:/VF/Pinnaroo/animal behaviour data/raw_data/CSIRO_Pinnaroo.csv")
 
