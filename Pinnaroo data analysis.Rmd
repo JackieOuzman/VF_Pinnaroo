@@ -773,7 +773,7 @@ especially in the south eastern corner.
 
 
 # Weeds data
-samples collected 2/11/2021
+samples collected 2/11/2021 (Damian)
 
 
 ```{r converted to biomass post_trial with VF and broome data, echo=FALSE, message=FALSE, warning=FALSE}
@@ -787,25 +787,34 @@ include_graphics("W:/VF/Pinnaroo/Biomass_data_maps/Pinnaroo_maps/Broome sampling
 
 - larger patches of Broome in VF 4 and outside VF area
 - Broome patches are located in the southern area
-- More patches of Broome inside fence. Not sure how meaningful this is?
-- On averages the patches are larger inside VF
-- Avearge number of plants per patch is less inside VF
-- Avearge heads on ground in less inside VF. Not sure how meaningful this is?
+
+- On averages the patches are smaller patches outside VF
+- but same number of plants per patch inside and outside the VF
+
+- More heads per viable/plant outside VF.
+
+- less heads on ground and less broome plants on the ground outside VF.
+
+
 
 | Summary Stat Broome samples 	        | 
 | ------- | ----------|-------------|
-| stats                          |Inside VF  | Outside VF	  |
-| sum of size of all patches      |13.2       | 10.5	        |
-| Average of size of patches      |1.7        | 1.5	        |
-| count of patches               |8          | 7            |	
-| Average plants per patch       |25         |35            |	
-| Average heads on ground       |26         |28           |
-
+| stats                           |Inside VF  | Outside VF	|
+| sum of size of all patches      |10.4       | 7.8	        |
+| Average of size of patches      |2.1        | 1.6	        |
+| count of patches                |5          | 5           |	
+| Average plants per patch        |35         |35.6         |	
+| Average HM heads are viable/plant |40.5     |46.8         |
+| Average heads on ground         |22.2       |16.2         |
+| Average brome plants on ground  |4.9       |0         |
 
 More detail here, not sure what aim of this maeaure was.
 ** Rick can you confirm **
 
 - `W:\VF\Pinnaroo\Biomass_data_maps\Pre and Post trial biomass\Pinnaroo Pre_Post Biomass cuts.xlsx`
+
+
+
 
 
 # Animal weights
@@ -870,7 +879,6 @@ ggplot(animal_wts, aes(as.factor(deviceName), wt_diff)) +
 -  Can we identify hotspots outside the VF area, if so do they match anything in the biomass data?
 -  Exclude the Bull from the start.
 
-- Weed data for the main paddock, we should have position GPS inside VF and outside VF
-- 
+
 
   
