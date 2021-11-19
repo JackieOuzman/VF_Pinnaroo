@@ -786,18 +786,18 @@ include_graphics("W:/VF/Pinnaroo/Biomass_data_maps/Pinnaroo_maps/Broome sampling
 ### Notes / observation from the above maps.
 
 - larger patches of Broome in VF 4 and outside VF area
-- Broome patches are located in the southern area
+- Brome patches are located in the southern area
 
 - On averages the patches are smaller patches outside VF
 - but same number of plants per patch inside and outside the VF
 
 - More heads per viable/plant outside VF.
 
-- less heads on ground and less broome plants on the ground outside VF.
+- less heads on ground and less brome plants on the ground outside VF.
 
 
 
-| Summary Stat Broome samples 	        | 
+| Summary Stat Brome samples 	        | 
 | ------- | ----------|-------------|
 | stats                           |Inside VF  | Outside VF	|
 | sum of size of all patches      |10.4       | 7.8	        |
@@ -898,13 +898,13 @@ Column called *fencesID* is the name of the fence.
 | fence ID in GPS data 	                | 
 | ----------          |-------------    |
 |   ID in GPS data    | ID for mapping	|
-|   165               | 	xx            |
-|   1ab95             | 	xx            |
-|   1d10b             | 	xx            |
-|   1df99             | 	xx            |
-|   1f076             | 	xx            |
-|   1f6da             | 	xx            |
-|   NULL              | 	xx            |
+|   165               | 	VP01          |
+|   1ab95             | 	VP03          |
+|   1d10b             | 	VP03_2        |
+|   1df99             | 	VF04         |
+|   1f076             | 	VP03_2       |
+|   1f6da             | 	VP02         |
+|   NULL              | 	?            |
 
 
        
