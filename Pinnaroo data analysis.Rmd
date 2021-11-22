@@ -42,35 +42,67 @@ library(raster)
 
 ## Location of the trial
 
-- Block boundaries drawn based on GPS points
+Block boundaries drawn in google earth.
 
 
 
 **Aim of trial:**
 
-selective grazing to barley paddock to frost effected part of the paddock.
+Selective grazing to barley paddock.
+The aim was to evenly graze the frost effected part of the paddock.
 
-Start date: 07/10/2021
+Start date: 07/10/2021 3:59:00 PM (record not sure if it is local time)
 
-End date: 20/10/2021
+End date: 20/10/2021 8:54:00 AM (deactivation record not sure if it is local time)
 
 Number of animals: 40 (including one bull)
 
-Date of fence moves:
+Date of fence move according to Rick records:
 
 
 
-| vp_name	        | boundary_id	| boundary_created	| activation_name                        |
-| ----------------| ----------- |----------------   |----------------------------------------|
-| VP01 (Training)	| 2557	      | 7/10/2021 5:11	  | Oct-07-1629-ACTIVATION-VP01 (Training) |
-| VP02	          | 2556        |	7/10/2021 5:11    |	Oct-11-1253-ACTIVATION-VP02            |
-| VP03            |	2561        |	7/10/2021 5:19    |	Oct-12-0853-ACTIVATION-VP03            |
-| VP03-2 Final    |	2590        |	14/10/2021 6:59	  | Oct-14-1801-ACTIVATION-VP03-2 Final    | 
-| VP03-2 Final    |	2590        |	14/10/2021 6:59	  | Oct-15-1035-ACTIVATION-VP03-2 Final    |
-| VP03-2 Final    |	2590        |	14/10/2021 6:59	  | Oct-15-1520-ACTIVATION-VP03-2 Final    |
-| VP04-1 Move     | 2584        |	14/10/2021 4:40	  | Oct-17-0927-ACTIVATION-VP04-1 Move     |
+| vp_name	        | boundary_id| boundary_created	| activation_name                        |
+| ----------------| -----------|----------------   |----------------------------------------|
+| VP01 (Training)	| 2557	     | 7/10/2021 3:59 PM | Oct-07-1629-ACTIVATION-VP01 (Training) |
+| VP02	          | 2556       |	11/10/2021 12:23 PM |	Oct-11-1253-ACTIVATION-VP02         |
+| VP03            |	0853       |	12/10/2021 8:53 AM  |	Oct-12-0853-ACTIVATION-VP03         |
+| VP03 with backgraze|1527     |	14/10/2021 2:57 PM  |	Oct-14-1527-ACTIVATION-VP03 with Backgraze|
+| VP03-2 Final    |	1801       |	14/10/2021 5:31 PM | Oct-14-1801-ACTIVATION-VP03-2 Final |
+| VP03-2 Final    |	1035       |	15/10/2021 10:05 AM| Oct-15-1035-ACTIVATION-VP03-2 Final |
+| VP03-2 Final    |	1520       |	15/10/2021 2:50 PM | Oct-15-1520-ACTIVATION-VP03-2 Final |
+| VP04-1 Move     | 0927       |	17/10/2021 9:27 AM | Oct-17-0927-ACTIVATION-VP04-1 Move  |
 
 Some of these fences seem to be almost the same.
+
+
+
+The location of the VF were supplied by Gallagher:
+
+| vp_name	        | boundary_id| boundary_created| activation_name                          |
+| ----------------| -----------|---------------- |----------------------------------------  |
+| VP01 (Training)	| 2557	     | 	7/10/2021 5:11 | Oct-07-1629-ACTIVATION-VP01 (Training)   |
+| VP02	          | 2556	     | 	7/10/2021 5:11 | Oct-11-1253-ACTIVATION-VP02              |
+| VP03           	| 2561	     | 	7/10/2021 5:19 | Oct-12-0853-ACTIVATION-VP03              |
+| VP03-2 Final    | 2590	     | 	14/10/2021 6:59| Oct-14-1801-ACTIVATION-VP03-2 Final      |
+| VP03-2 Final    | 2590	     | 	14/10/2021 6:59| Oct-15-1035-ACTIVATION-VP03-2 Final      |
+| VP03-2 Final    | 2590	     | 	14/10/2021 6:59| Oct-15-1520-ACTIVATION-VP03-2 Final      |
+| VP04-1 Move	    | 2584	     | 	14/10/2021 4:40| Oct-17-0927-ACTIVATION-VP04-1 Move       |
+
+
+
+This looks like an error with date and time.
+I have emailed Gallagher to confrim.
+Also requesting if they have a file to convert the different bounadry_id.
+
+I have also asked for the water tank information.
+Rick has given me two collar number:
+
+0491508
+0490705
+
+
+I don't have any records of these collar or any extra collar data that is not already assigned to an animal.
+
 
 I have used 
 
@@ -134,7 +166,7 @@ Crop circle and Phenom survey undertaken by Damian on 06/10/2021
 
 Crop circle and Phenom survey undertaken by Damian on 20/10/2021
 
-*Damian can you confirm*
+
 
 **Raw data**
 
@@ -415,11 +447,9 @@ biomass = -22649.9 + 593.8 * Phenom Dist survey value
 
 
 
-Is this correct? 
 
-Phenom Dist survey value value of 44 will be converted to biomass 3477
 
-Phenom Dist survey value value of 50 will be converted to biomass 7040
+
 
 
 
@@ -720,11 +750,6 @@ biomass = -23,519 + 609	 * Phenom Dist survey value
 
 
 
-Is this correct? 
-
-Phenom Dist survey value value of 44 will be converted to biomass 3277
-
-Phenom Dist survey value value of 50 will be converted to biomass 6931 
 
 
 
@@ -764,8 +789,8 @@ especially in the south eastern corner.
 | Summary Stat for VF area (from .tif files)	        | 
 | ------- | ----------|-------------|
 | stat    |Pre trial  | Post trail	|
-| min     |3030       | 676	        |
-| max     |9215       | 5299        |	
+| Min     |3030       | 676	        |
+| Max     |9215       | 5299        |	
 | Mean    |59356      |2831         |	
 | Std Dev |1029       |812	        | 
 
@@ -799,7 +824,7 @@ include_graphics("W:/VF/Pinnaroo/Biomass_data_maps/Pinnaroo_maps/Broome sampling
 
 | Summary Stat Brome samples 	        | 
 | ------- | ----------|-------------|
-| stats                           |Inside VF  | Outside VF	|
+| Stats                           |Inside VF  | Outside VF	|
 | sum of size of all patches      |10.4       | 7.8	        |
 | Average of size of patches      |2.1        | 1.6	        |
 | count of patches                |5          | 5           |	
@@ -808,8 +833,7 @@ include_graphics("W:/VF/Pinnaroo/Biomass_data_maps/Pinnaroo_maps/Broome sampling
 | Average heads on ground         |22.2       |16.2         |
 | Average brome plants on ground  |4.9       |0         |
 
-More detail here, not sure what aim of this maeaure was.
-** Rick can you confirm **
+
 
 - `W:\VF\Pinnaroo\Biomass_data_maps\Pre and Post trial biomass\Pinnaroo Pre_Post Biomass cuts.xlsx`
 
@@ -823,9 +847,13 @@ The chief data scientist/ data analytics manager is:
 
 
 Dr. Shiva Pratap Gopakumar | Data Scientist | eShepherd
+
 Gallagher eShepherd Pty Ltd
+
 1100-1102 Toorak Road, Camberwell, VIC, 3124
+
 DDI +61 3 8849 8600 | MOB +61 426 092 143
+
 EMAIL shiva.gopakumar@gallagher.com | WEB www.gallagher.com
 
 
@@ -840,7 +868,10 @@ This can be viewed from the timeOfEvent column.
 Note that this timeOfEvent has a date and time stamp which is in GMT.
 
 The *timeOfEvent* will need to be converted to local time.
-Which is 10.5 hrs difference (during daylight saving starts 3rd Oct - so this is correct for our dataset)
+
+Which is 10.5 hrs difference 
+
+(during daylight saving starts 3rd Oct - so this is correct for our dataset)
 
 **GPS**
 
@@ -895,16 +926,6 @@ If it is the min distance the animal got to and not just the distance from the f
 Column called *fencesID* is the name of the fence.
 
 
-| fence ID in GPS data 	                | 
-| ----------          |-------------    |
-|   ID in GPS data    | ID for mapping	|
-|   165               | 	VP01          |
-|   1ab95             | 	VP03          |
-|   1d10b             | 	VP03_2        |
-|   1df99             | 	VF04         |
-|   1f076             | 	VP03_2       |
-|   1f6da             | 	VP02         |
-|   NULL              | 	?            |
 
 
        
@@ -949,11 +970,13 @@ For example in the 10 min window the animals has spent 37% of the time resting, 
 
 I want to make a clm that will help identify what part of the paddock the cows are allowed to graze in.
 
-For VF 1 - 4 this is easy.
+For VF 1 - 4 this is easy, when I have the correct fence ID matches in the shapefiles and aniamal movment file.
+
 The data has an clm with 'fence ID', so when a VF is active this clm will have the fence ID value in it.
+
 There is a problem with some logged points, the fence ID clm is blank.
 I assume this is happening because the VF is deactivated.
-Agersens suggested "For the VF dataset only retaining data points that have an associated fence ID".
+Gallagher suggested "For the VF dataset only retaining data points that have an associated fence ID".
 
 
 
@@ -965,18 +988,18 @@ Add date column - this is has no rounding and is just the date extracted from th
 
 I have also filter out data within a date and time range (not sure about the time)
 
-between "2021-10-07 05:33:00" to "2020-10-20 xx:xx:00" GTM
-between "2021-10-07 16:03:00" to "2020-10-20 08:54:00" localtime ?? check the end time
+
+between "2021-10-07 16:03:00" to "2020-10-20 08:54:00" localtime 
 
 
 
-#### also check the calulation for this - perhaps a dummy file might be good
 
 
-```{r bring in the data week 1, include=FALSE}
-animal_GPS_data <- read.csv("W:/VF/Pinnaroo/animal behaviour data/raw_data/CSIRO_Pinnaroo.csv")
 
+```{r bring in the data, message=TRUE, include=FALSE}
 
+animal_GPS_data <- read_csv("W:/VF/Pinnaroo/animal behaviour data/raw_data/CSIRO_Pinnaroo.csv", 
+                                              col_types = cols(timeOfEvent = col_datetime(format = "%d/%m/%Y %H:%M")))
 
 animal_GPS_data <- animal_GPS_data %>% 
   mutate(GMT = ymd_hms(timeOfEvent, tz = "GMT"))
@@ -984,8 +1007,354 @@ animal_GPS_data <- animal_GPS_data %>%
 animal_GPS_data <- animal_GPS_data %>% 
   mutate(local_time = with_tz(GMT, tz = "Australia/Adelaide"))
 
+animal_GPS_data <- animal_GPS_data %>% 
+  dplyr::select(deviceUIDHex:grazing_percentage, GMT:local_time)
+
+animal_GPS_data <- animal_GPS_data %>%  filter(local_time >= ymd_hms("2021-10-07 16:03:00", tz= "Australia/Adelaide"), 
+                         local_time <=  ymd_hms("2021-10-20 08:54:00", tz= "Australia/Adelaide"))
+
+animal_GPS_data <- animal_GPS_data %>% 
+  mutate(date = as.Date(local_time, tz= "Australia/Adelaide"),
+         DOY = yday(date))
+
+
+
 ```
 
+
+The fence ID in the animal movement file is not the same as the VF boundaries.
+
+The list below is the dates and times for the fences ID in the animal movement files.
+
+
+```{r fence ID date and time, echo=FALSE}
+
+check2 <- animal_GPS_data %>% group_by(  fencesID) %>% 
+  summarise(min_local_time = ymd_hms(min(local_time), tz= "Australia/Adelaide"),
+            max_local_time = ymd_hms(max(local_time), tz= "Australia/Adelaide"),
+            count_records = n())
+check2 <- arrange(check2, min_local_time)
+
+check2
+
+# the DT table seems to use some strange time setting not sure what the work around is other than date only as below
+# DT::datatable(
+#   check2,
+#   options = list(dom = 't'),
+#   #removes the search bar
+#   caption = 'Details of the fence ID.',
+#   rownames = FALSE
+# ) %>% 
+#   formatDate(c(2,3), method = 'toDateString')
+
+
+```
+
+
+
+I am not really sure what fence ID relates to what VF area.
+
+*This needs confirming and if needs changing the code below need work*
+
+
+| fence ID in GPS data 	                | 
+| ----------          |-------------    |
+|   ID in GPS data    | ID for mapping	|
+|   165 +02           | 	VP01          |
+|   165               | 	VP01          |
+|   1f6da             |   VF02          |
+|   1d10b             | 	VP03          |
+|   1f076             | 	VP03_2        |
+|   1ab95             | 	VP03_2        |
+|   1df99             | 	VF04          |
+|   NULL              | 	?             |
+
+
+
+## Add columns to aid plotting and analysis.
+
+
+
+Add extra one for days since fence move clm called 'day_since_vf_start'
+
+Julian days from local date/time column and then subtract start of VF.
+
+
+VF Area 1 = date 2021-10-07 16:03:00
+VF Area 2 = date 2021-10-11 12:33:00
+VF Area 3 = date 2021-10-12 09:03:00 (this is a few fences all named VF3 )
+VF Area 4 = date 2021-10-17 09:33:00
+
+
+```{r add clms days since start, echo=FALSE, message=FALSE, warning=FALSE}
+
+## clm for day of year in local time
+
+vf1_area_start  <-  yday(ymd_hms("2021-10-07 16:03:00", tz= "Australia/Adelaide")) 
+vf2_area_start  <-  yday(ymd_hms("2021-10-11 12:33:00", tz= "Australia/Adelaide"))
+vf3_area_start  <-  yday(ymd_hms("2021-10-12 09:03:00", tz= "Australia/Adelaide"))
+vf4_area_start  <-  yday(ymd_hms("2021-10-17 09:33:00", tz= "Australia/Adelaide"))
+
+
+animal_GPS_data <- animal_GPS_data %>%  
+  mutate(
+    VF_area  = case_when(
+      fencesID == "1.65E+02" ~ "VF_area1",
+      fencesID == "165" ~ "VF_area1",
+      
+      fencesID == "1f6da" ~ "VF_area2",
+      
+      fencesID == "1d10b" ~ "VF_area3",
+      fencesID == "1f076" ~ "VF_area3",
+      fencesID == "1ab95" ~ "VF_area3",
+      
+      fencesID == "1df99" ~ "VF_area4"))
+
+
+animal_GPS_data <- animal_GPS_data %>%  
+  mutate(
+    day_since_vf_start  = case_when(
+      VF_area == "VF_area1" ~ (DOY-vf1_area_start)+1,
+      
+      VF_area == "VF_area2" ~ (DOY-vf2_area_start)+1,
+      
+      VF_area == "VF_area3" ~ (DOY-vf3_area_start)+1,
+      
+      VF_area == "VF_area4" ~ (DOY-vf4_area_start)+1))
+  
+
+check3 <- animal_GPS_data %>% group_by( VF_area) %>% 
+  summarise('min day since VF move' = min(day_since_vf_start),
+            'max day since VF move' = max(day_since_vf_start))
+
+check3
+```
+
+
+
+
+## Plot stimuli results
+
+
+
+The stimuli data is supplied as a 'cumulative value'.
+I would like it to be plotted per day and fence.
+
+I could report the cumulative audio pulses and cumulative pulse pulses for the same time each day of the trial.
+
+Sub-setting the data only retaining values at 3pm for each day.
+
+But we don't always have readings for 3pm.
+I have rounded the time column to the closest 15mins
+I can pull out a window and use that e.g. 15:00 - 15:15.
+
+
+
+Using a 3pm window to subset the data, I double check that I have readings for all animals.
+Some animals have 2 readings while others have only 1.
+So I can't change this window too much (as I need a at least 1 record).
+
+
+Grouping the 3pm window data on date and collar ID.
+Summary stats on the max values for:
+
+- a = audio min value per day per animal
+- b = pulse min value per day per animal
+- ratio =  ((b/a)*100) per day per animal
+
+
+```{r working -ratio , message=FALSE, warning=FALSE, include=FALSE}
+
+#1 create an ID for each row
+test <- animal_GPS_data
+test$ID <- seq.int(nrow(test))
+
+
+
+# create a new clm that rounds the time to every 15 mins
+test_VF_for_3pm <- test %>% 
+  mutate(round_date_time = ceiling_date(local_time, "15 mins"),
+         time_round = hms::as_hms(round_date_time))
+
+
+#value at the start of each day pull out the values for this window
+test_VF_for_3pm <- test_VF_for_3pm %>% 
+  filter(time_round >= hms::as_hms('15:00:00'),
+         time_round <= hms::as_hms('15:15:00'))
+
+ungroup(test_VF_for_3pm)
+
+
+str(test_VF_for_3pm)
+# what is the smallest values in the data set for each animal and day
+test_VF_for_3pm <- test_VF_for_3pm %>% 
+  group_by(deviceName, date) %>% 
+  summarise(
+    min_local_time = ymd_hms(min(local_time), tz= "Australia/Adelaide"),
+    ID = ID)
+
+test_VF_for_3pm <- test_VF_for_3pm %>% 
+  group_by(deviceName, date) %>% 
+  summarise(
+    min_ID = (min(ID)))
+
+
+#I think this is working now I need to use the ID to retain values in the first dataset.
+# use a join to do this
+ungroup(test_VF_for_3pm)
+str(test_VF_for_3pm)
+test_VF_for_3pm <- test_VF_for_3pm %>% 
+  dplyr::select(min_ID)
+
+join <- left_join(test_VF_for_3pm,test, by = c("min_ID" = "ID") )
+str(join)
+
+join <- join %>%  dplyr::rename(deviceName = deviceName.x) %>% 
+  dplyr::select(-deviceName.y )
+
+
+
+
+```
+
+
+```{r plots -ratio , echo=FALSE, message=FALSE, warning=FALSE}
+
+Three_pm_per_animal <- join %>% 
+  group_by(date, deviceName) %>%
+  summarise(audio = min( cumulativeAudioCount, na.rm = TRUE),
+            pulse = min( cumulativeShockCount, na.rm = TRUE),
+            ratio = (pulse/audio)*100)
+
+
+Three_pm_per_animal <- ungroup(  Three_pm_per_animal)
+
+# make df narrow
+
+
+Three_pm_per_animal <- pivot_longer(Three_pm_per_animal,
+                                             cols = c("audio", "pulse", "ratio"),
+                                             names_to = "stimuli")
+
+
+
+
+#plots
+
+
+
+#str(week1_2_3_for_3pm_per_animal$date)
+
+vertical_lines <- c("2021-10-07", "2021-10-11", "2021-10-12", "2021-10-17")
+
+#str(vertical_lines)
+
+# Three_pm_per_animal %>%
+#   filter(stimuli == "ratio" ) %>% 
+#   ggplot(aes(x = date , y = value)) +
+#   geom_col()+
+#   theme_classic() +
+#   facet_wrap(.~deviceName)+
+#   theme(axis.text.x = element_text(angle = 90))+
+#   #geom_vline(xintercept = as.Date(vertical_lines), col = "blue")+
+#   labs(
+#     x = "Date",
+#     y = "ratio (pulse/audio)*100 ",
+#     title = paste("Animals fitted with VF collars")
+#   )
+
+Three_pm_per_animal %>%
+  filter(stimuli != "ratio" ) %>% 
+  ggplot(aes(x = date , y = value)) +
+  geom_col(aes(fill = stimuli), width = 0.7)+
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 90))+
+  geom_vline(xintercept = as.Date(vertical_lines), col = "blue")+
+  labs(
+    x = "Date",
+    y = "cumulative of stimuli",
+    title = paste("Animals fitted with VF collars")
+  )
+
+
+
+Three_pm_per_animal_table <- Three_pm_per_animal %>% 
+  filter(stimuli != "ratio" ) %>%
+  group_by(date, stimuli)%>% 
+  summarise(
+    mean_stimuli = mean(value   , na.rm =TRUE))
+Three_pm_per_animal_table
+
+```
+
+
+
+The below plots adding another layer of grouping.
+
+Plots are with all the animal information.
+Should this be a sum or average?
+  
+  I am going to use average!
+  
+  I have grouped the data into date and calculated:
+  
+  
+  - calculated the mean of audio pulses for all the animals
+- calculated the mean of pulse for all the animals
+- calculated the mean of ratio for all the animals
+
+
+
+```{r results -stimuli for VF1 mob, echo=FALSE, message=FALSE, warning=FALSE}
+
+
+#week1_2_3_for_3pm_per_animal
+
+Three_pm_per_animal_summary_per_day <- Three_pm_per_animal %>% 
+  group_by(date, stimuli)%>%
+  summarise(stimuli_av_day = mean(value, na.rm = TRUE))
+
+
+
+Three_pm_per_animal_summary_per_day %>%
+  filter(stimuli == "ratio" ) %>% 
+  ggplot(aes(x = date , y = stimuli_av_day)) +
+  geom_col()+
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 90))+
+  geom_vline(xintercept = as.Date(vertical_lines), col = "blue")+
+  labs(
+    x = "Date",
+    y = "average ratio ",
+    title = paste("")
+  )
+
+
+
+
+Three_pm_per_animal_summary_per_day %>%
+  filter(stimuli != "ratio" ) %>% 
+  ggplot(aes(x = date , y = stimuli_av_day)) +
+  geom_col(aes(fill = stimuli), width = 0.7)+
+  theme_classic() +
+  geom_vline(xintercept = as.Date(vertical_lines), col = "blue")+
+  theme(axis.text.x = element_text(angle = 90))+
+  labs(
+    x = "Date",
+    y = "Average of stimuli",
+    title = paste("")
+  )
+
+
+
+Three_pm_per_animal_summary_per_day_table <- Three_pm_per_animal_summary_per_day %>% 
+  filter(stimuli == "ratio" ) %>%
+  group_by(date, stimuli)%>% 
+  summarise(
+    mean_stimuli = mean(stimuli_av_day   , na.rm =TRUE))
+Three_pm_per_animal_summary_per_day_table
+
+```
 
 
 # Animal weights
