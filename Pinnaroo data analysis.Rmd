@@ -42,7 +42,7 @@ library(raster)
 
 ## Location of the trial
 
-Block boundaries drawn in google earth.
+Block boundaries drawn in Google earth.
 
 
 
@@ -91,7 +91,7 @@ The location of the VF were supplied by Gallagher:
 
 
 This looks like an error with date and time.
-I have emailed Gallagher to confrim.
+I have emailed Gallagher to confirm.
 Also requesting if they have a file to convert the different bounadry_id.
 
 I have also asked for the water tank information.
@@ -188,7 +188,7 @@ We have only used sensor 1 for this analysis.
 
 We have used NDVI, LAI and DIST, there are other signals / channels that can be use.
 
-At Long Plains we didnt used DIST - perhaps we should?
+At Long Plains we didn't used DIST - perhaps we should?
 
 **Rasters** 
 
@@ -222,7 +222,7 @@ Phenom Post Trial
 
 Data processing done by Jackie using the following settings:
 
-- Block boundaries created in google earth pro.
+- Block boundaries created in Google earth pro.
 
 - Data cleaned and trimmed using PAT QGIS tools, standard default settings used
 
@@ -250,7 +250,7 @@ include_graphics("W:/VF/Pinnaroo/Biomass_data_maps/Pinnaroo_maps/Pre_trial_bioma
 
 ## plot of biomass vs survey data pre trial
 
-Linnear model 
+Linear model 
 
 
 
@@ -764,7 +764,7 @@ include_graphics("W:/VF/Pinnaroo/Biomass_data_maps/Pinnaroo_maps/Pre Post_trial_
 
 ```
 
-### Pre and post grids of biomass distplay the VF area only
+### Pre and post grids of biomass display the VF area only
 
 
 ```{r converted to biomass pre post_trial with VF, echo=FALSE, message=FALSE, warning=FALSE}
@@ -843,6 +843,8 @@ include_graphics("W:/VF/Pinnaroo/Biomass_data_maps/Pinnaroo_maps/Broome sampling
 ## Background information on animal collar data from Gallagher
 
 
+**Contact**
+
 The chief data scientist/ data analytics manager is:
 
 
@@ -857,6 +859,8 @@ DDI +61 3 8849 8600 | MOB +61 426 092 143
 EMAIL shiva.gopakumar@gallagher.com | WEB www.gallagher.com
 
 
+
+**Data provided**
 
 
 Every 10 mins generates a new row of data.
@@ -881,8 +885,7 @@ Data columns that are supplied:
 
 - *gpsData.lat*	
 - *gpsData.lng*
-- *gpsData.velocity_cm_s*	
-- *gpsData.hdop_deci*	
+
 
 I will use the lat and long column to create a location of the animal in the 10 min window.
 
@@ -899,7 +902,7 @@ I am also not sure about the use of the velocity reading, how would this be calc
 The *cumulativeAudioCount* and	*cumulativeShockCount* columns are a running total of how many stimuli the animal has received since the start of the trial, and is re calculated every 10 mins.
 
 It appears that the increments are not reset when a new fence is implement.
-Instead its just keeps cummulating.
+Instead its just keeps cumulating.
 
 **Device details**
 
@@ -968,28 +971,20 @@ For example in the 10 min window the animals has spent 37% of the time resting, 
 ## Step 1 bring in the raw data and set date and time formats
 
 
-I want to make a clm that will help identify what part of the paddock the cows are allowed to graze in.
+**Add date column**
 
-For VF 1 - 4 this is easy, when I have the correct fence ID matches in the shapefiles and aniamal movment file.
+- this is has no rounding and is just the date extracted from the local time column
 
-The data has an clm with 'fence ID', so when a VF is active this clm will have the fence ID value in it.
+**retain data within a date and time range**
 
-There is a problem with some logged points, the fence ID clm is blank.
-I assume this is happening because the VF is deactivated.
-Gallagher suggested "For the VF dataset only retaining data points that have an associated fence ID".
+- I have also filter out data within a date and time range (I have got this from Rick notes)
 
-
-
-
-Add date column - this is has no rounding and is just the date extracted from the local time column
+- between "2021-10-07 16:03:00" to "2020-10-20 08:54:00" localtime 
 
 
 
 
-I have also filter out data within a date and time range (not sure about the time)
 
-
-between "2021-10-07 16:03:00" to "2020-10-20 08:54:00" localtime 
 
 
 
@@ -1021,10 +1016,22 @@ animal_GPS_data <- animal_GPS_data %>%
 
 ```
 
+**Column for VF area**
 
-The fence ID in the animal movement file is not the same as the VF boundaries.
+- Create a column that will help identify what part of the paddock the cows are allowed to graze in.
 
-The list below is the dates and times for the fences ID in the animal movement files.
+- Gallagher will confirm the fenceID in the animal movement file and the fenceID boundary file (as they have different codes) 
+
+- The animal movement data has an clm with 'fence ID', so when a VF is active this clm will have the fence ID value in it.
+
+- There is a problem with some logged points, the fence ID clm is blank.
+- I assume this is happening because the VF is deactivated.
+- Gallagher suggested "For the VF dataset only retaining data points that have an associated fence ID".
+
+
+
+
+- The list below is the dates and times for the fences ID in the animal movement files.
 
 
 ```{r fence ID date and time, echo=FALSE}
@@ -1050,9 +1057,10 @@ check2
 
 ```
 
+- the fenceID (from the animal movement file) need to be matched up with the VF area (the spatial data)
 
 
-I am not really sure what fence ID relates to what VF area.
+
 
 *This needs confirming and if needs changing the code below need work*
 
@@ -1071,13 +1079,13 @@ I am not really sure what fence ID relates to what VF area.
 
 
 
-## Add columns to aid plotting and analysis.
+**Add Day since start of VF columns** 
 
 
 
-Add extra one for days since fence move clm called 'day_since_vf_start'
+- Add extra one for days since fence move clm called 'day_since_vf_start'
 
-Julian days from local date/time column and then subtract start of VF.
+- Julian days from local date/time column and then subtract start of VF.
 
 
 VF Area 1 = date 2021-10-07 16:03:00
@@ -1137,31 +1145,37 @@ check3
 
 
 
-The stimuli data is supplied as a 'cumulative value'.
-I would like it to be plotted per day and fence.
+- The stimuli data is supplied as a 'cumulative value'.
+- I would like it to be plotted per day and fence.
 
-I could report the cumulative audio pulses and cumulative pulse pulses for the same time each day of the trial.
+- I could report the cumulative audio pulses and cumulative pulse pulses for the same time each day of the trial.
+- and then do some work to remove the previous days reading.
 
-Sub-setting the data only retaining values at 3pm for each day.
+*reducing data to only have reading per day per animal at 3pm for cue data*
 
-But we don't always have readings for 3pm.
-I have rounded the time column to the closest 15mins
-I can pull out a window and use that e.g. 15:00 - 15:15.
+- Sub-setting the data only retaining values at 5pm for each day.
+
+- But we don't always have readings for 5pm.
+- I have rounded the time column to the closest 15mins
+- I can pull out a window and use that e.g. 17:00 - 17:15.
 
 
 
-Using a 3pm window to subset the data, I double check that I have readings for all animals.
-Some animals have 2 readings while others have only 1.
-So I can't change this window too much (as I need a at least 1 record).
+- Using a 3pm window to subset the data, I double check that I have readings for all animals.
+- Some animals have 2 readings while others have only 1.
+- So I can't change this window too much (as I need a at least 1 record, looks good). 
+
 
 
 Grouping the 3pm window data on date and collar ID.
-Summary stats on the max values for:
+Summary stats on the min values for each day per animal:
 
 - a = audio min value per day per animal
 - b = pulse min value per day per animal
 - ratio =  ((b/a)*100) per day per animal
 
+
+Note that these are still cummulative readings (but just for the 3pm window)
 
 ```{r working -ratio , message=FALSE, warning=FALSE, include=FALSE}
 
@@ -1172,28 +1186,28 @@ test$ID <- seq.int(nrow(test))
 
 
 # create a new clm that rounds the time to every 15 mins
-test_VF_for_3pm <- test %>% 
+test_VF_for_5pm <- test %>% 
   mutate(round_date_time = ceiling_date(local_time, "15 mins"),
          time_round = hms::as_hms(round_date_time))
 
 
 #value at the start of each day pull out the values for this window
-test_VF_for_3pm <- test_VF_for_3pm %>% 
-  filter(time_round >= hms::as_hms('15:00:00'),
-         time_round <= hms::as_hms('15:15:00'))
+test_VF_for_5pm <- test_VF_for_5pm %>% 
+  filter(time_round >= hms::as_hms('17:00:00'),
+         time_round <= hms::as_hms('17:15:00'))
 
-ungroup(test_VF_for_3pm)
+ungroup(test_VF_for_5pm)
 
 
-str(test_VF_for_3pm)
+str(test_VF_for_5pm)
 # what is the smallest values in the data set for each animal and day
-test_VF_for_3pm <- test_VF_for_3pm %>% 
+test_VF_for_5pm <- test_VF_for_5pm %>% 
   group_by(deviceName, date) %>% 
   summarise(
     min_local_time = ymd_hms(min(local_time), tz= "Australia/Adelaide"),
     ID = ID)
 
-test_VF_for_3pm <- test_VF_for_3pm %>% 
+test_VF_for_5pm <- test_VF_for_5pm %>% 
   group_by(deviceName, date) %>% 
   summarise(
     min_ID = (min(ID)))
@@ -1201,38 +1215,47 @@ test_VF_for_3pm <- test_VF_for_3pm %>%
 
 #I think this is working now I need to use the ID to retain values in the first dataset.
 # use a join to do this
-ungroup(test_VF_for_3pm)
-str(test_VF_for_3pm)
-test_VF_for_3pm <- test_VF_for_3pm %>% 
+ungroup(test_VF_for_5pm)
+str(test_VF_for_5pm)
+test_VF_for_5pm <- test_VF_for_5pm %>% 
   dplyr::select(min_ID)
 
-join <- left_join(test_VF_for_3pm,test, by = c("min_ID" = "ID") )
+join <- left_join(test_VF_for_5pm,test, by = c("min_ID" = "ID") )
 str(join)
 
 join <- join %>%  dplyr::rename(deviceName = deviceName.x) %>% 
   dplyr::select(-deviceName.y )
 
 
-
+### how many animals and how many days? look like we have 39 collars for days 281 to 292
+animal_count <- join %>% group_by(DOY) %>% 
+  summarise(count = n())
 
 ```
 
+```{r check 5pm data, echo=TRUE, message=FALSE, warning=FALSE}
+animal_count
 
-```{r plots -ratio , echo=FALSE, message=FALSE, warning=FALSE}
+```
 
-Three_pm_per_animal <- join %>% 
+## Plot stimuli results per animal
+
+
+```{r working for plots cues, echo=FALSE, message=FALSE, warning=FALSE}
+
+five_pm_per_animal <- join %>% 
   group_by(date, deviceName) %>%
   summarise(audio = min( cumulativeAudioCount, na.rm = TRUE),
             pulse = min( cumulativeShockCount, na.rm = TRUE),
             ratio = (pulse/audio)*100)
 
 
-Three_pm_per_animal <- ungroup(  Three_pm_per_animal)
+five_pm_per_animal <- ungroup(  five_pm_per_animal)
 
 # make df narrow
 
 
-Three_pm_per_animal <- pivot_longer(Three_pm_per_animal,
+five_pm_per_animal <- pivot_longer(five_pm_per_animal,
                                              cols = c("audio", "pulse", "ratio"),
                                              names_to = "stimuli")
 
@@ -1248,75 +1271,162 @@ Three_pm_per_animal <- pivot_longer(Three_pm_per_animal,
 vertical_lines <- c("2021-10-07", "2021-10-11", "2021-10-12", "2021-10-17")
 
 #str(vertical_lines)
+```
 
-# Three_pm_per_animal %>%
-#   filter(stimuli == "ratio" ) %>% 
-#   ggplot(aes(x = date , y = value)) +
-#   geom_col()+
-#   theme_classic() +
-#   facet_wrap(.~deviceName)+
-#   theme(axis.text.x = element_text(angle = 90))+
-#   #geom_vline(xintercept = as.Date(vertical_lines), col = "blue")+
-#   labs(
-#     x = "Date",
-#     y = "ratio (pulse/audio)*100 ",
-#     title = paste("Animals fitted with VF collars")
-#   )
-
-Three_pm_per_animal %>%
-  filter(stimuli != "ratio" ) %>% 
+```{r plots -audio, echo=FALSE, message=FALSE, warning=FALSE}
+five_pm_per_animal %>%
+  filter(stimuli == "audio" ) %>%
   ggplot(aes(x = date , y = value)) +
-  geom_col(aes(fill = stimuli), width = 0.7)+
+  geom_col()+
   theme_classic() +
+  facet_wrap(.~deviceName)+
   theme(axis.text.x = element_text(angle = 90))+
   geom_vline(xintercept = as.Date(vertical_lines), col = "blue")+
   labs(
     x = "Date",
-    y = "cumulative of stimuli",
-    title = paste("Animals fitted with VF collars")
+    y = "audio",
+    title = paste("Cumulative reading reported 5pm every day of trial, per animal")
   )
 
-
-
-Three_pm_per_animal_table <- Three_pm_per_animal %>% 
-  filter(stimuli != "ratio" ) %>%
-  group_by(date, stimuli)%>% 
-  summarise(
-    mean_stimuli = mean(value   , na.rm =TRUE))
-Three_pm_per_animal_table
 
 ```
 
 
+*Notes / observation*
 
-The below plots adding another layer of grouping.
+- This is each animal per day of trial, the cumulative audio readings at 5pm each day.
+- The first fence was turnned on at 4pm (day 1 has about 1 hours worth of data).
+- The last fence was turned off 20th 9am (so this series of graphs stop at 19th 5pm).
 
-Plots are with all the animal information.
-Should this be a sum or average?
+- Audio cues recieved is variable between animals
+- Some animals have a steady increase over time trial, this means that they are constantly testing the fence.
+- Some animals get no cues on day 1 and very few for the first few days.
+- Some animals tested the fence at the start and then cues platue off, they didn't do much more testing.
+- There does not seem to be an increase in audio cues when the fence is moved.
+- How does that work? are some animals following what others are doing?
+
+```{r plots -pulse, echo=FALSE, message=FALSE, warning=FALSE}
+five_pm_per_animal %>%
+  filter(stimuli == "pulse" ) %>%
+  ggplot(aes(x = date , y = value)) +
+  geom_col()+
+  theme_classic() +
+  facet_wrap(.~deviceName)+
+  theme(axis.text.x = element_text(angle = 90))+
+  geom_vline(xintercept = as.Date(vertical_lines), col = "blue")+
+  labs(
+    x = "Date",
+    y = "pulse ",
+    title = paste("Cumulative reading reported 5pm every day of trial, per animal")
+  )
+
+
+```
+
+*Notes / observation*
+
+- Similar to pulse data but with even less data
+
+
+```{r plots -ratio, echo=FALSE, message=FALSE, warning=FALSE}
+five_pm_per_animal %>%
+  filter(stimuli == "ratio" ) %>%
+  ggplot(aes(x = date , y = value)) +
+  geom_col()+
+  theme_classic() +
+  facet_wrap(.~deviceName)+
+  theme(axis.text.x = element_text(angle = 90))+
+  geom_vline(xintercept = as.Date(vertical_lines), col = "blue")+
+  labs(
+    x = "Date",
+    y = "ratio (pulse/audio)*100 ",
+    title = paste("Cumulative reading reported 5pm every day of trial, per animal")
+  )
+
+
+```
+
+*Notes / observation*
+
+- Ratio plots are easier to compare the animals.
+- Can't see the change in cues as a fence is moved.
+
+
+
+
+
+## Plot of avearge stimuli for all animal per day (still cumulative data)
+
+- I have grouped the data into date and calculated:
   
-  I am going to use average!
   
-  I have grouped the data into date and calculated:
-  
-  
-  - calculated the mean of audio pulses for all the animals
-- calculated the mean of pulse for all the animals
-- calculated the mean of ratio for all the animals
+- mean of audio pulses for all the animals
+- mean of pulse for all the animals
+- mean of ratio for all the animals (note the ratio were first calulated per animal)
 
 
 
-```{r results -stimuli for VF1 mob, echo=FALSE, message=FALSE, warning=FALSE}
+```{r results -stimuli for audio , echo=FALSE, message=FALSE, warning=FALSE}
 
 
-#week1_2_3_for_3pm_per_animal
-
-Three_pm_per_animal_summary_per_day <- Three_pm_per_animal %>% 
+five_pm_per_animal_summary_per_day <- five_pm_per_animal %>% 
   group_by(date, stimuli)%>%
   summarise(stimuli_av_day = mean(value, na.rm = TRUE))
 
 
 
-Three_pm_per_animal_summary_per_day %>%
+five_pm_per_animal_summary_per_day %>%
+  filter(stimuli == "audio" ) %>% 
+  ggplot(aes(x = date , y = stimuli_av_day)) +
+  geom_col()+
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 90))+
+  geom_vline(xintercept = as.Date(vertical_lines), col = "blue")+
+  labs(
+    x = "Date",
+    y = "average audio of all animals",
+    title = paste("")
+  )
+
+
+```
+
+
+```{r results -stimuli for pulse , echo=FALSE, message=FALSE, warning=FALSE}
+
+
+five_pm_per_animal_summary_per_day <- five_pm_per_animal %>% 
+  group_by(date, stimuli)%>%
+  summarise(stimuli_av_day = mean(value, na.rm = TRUE))
+
+
+
+five_pm_per_animal_summary_per_day %>%
+  filter(stimuli == "pulse" ) %>% 
+  ggplot(aes(x = date , y = stimuli_av_day)) +
+  geom_col()+
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 90))+
+  geom_vline(xintercept = as.Date(vertical_lines), col = "blue")+
+  labs(
+    x = "Date",
+    y = "average pulse of all animals",
+    title = paste("")
+  )
+
+
+```
+
+```{r results -stimuli for ratio , echo=FALSE, message=FALSE, warning=FALSE}
+
+
+five_pm_per_animal_summary_per_day <- five_pm_per_animal %>% 
+  group_by(date, stimuli)%>%
+  summarise(stimuli_av_day = mean(value, na.rm = TRUE))
+
+
+
+five_pm_per_animal_summary_per_day %>%
   filter(stimuli == "ratio" ) %>% 
   ggplot(aes(x = date , y = stimuli_av_day)) +
   geom_col()+
@@ -1325,14 +1435,15 @@ Three_pm_per_animal_summary_per_day %>%
   geom_vline(xintercept = as.Date(vertical_lines), col = "blue")+
   labs(
     x = "Date",
-    y = "average ratio ",
+    y = "average ratio of all animals",
     title = paste("")
   )
 
 
+```
 
-
-Three_pm_per_animal_summary_per_day %>%
+```{r results -stimuli for ratio no facet  , echo=FALSE, message=FALSE, warning=FALSE}
+five_pm_per_animal_summary_per_day %>%
   filter(stimuli != "ratio" ) %>% 
   ggplot(aes(x = date , y = stimuli_av_day)) +
   geom_col(aes(fill = stimuli), width = 0.7)+
@@ -1346,13 +1457,119 @@ Three_pm_per_animal_summary_per_day %>%
   )
 
 
-
-Three_pm_per_animal_summary_per_day_table <- Three_pm_per_animal_summary_per_day %>% 
+five_pm_per_animal_summary_per_day_table <- five_pm_per_animal_summary_per_day %>% 
   filter(stimuli == "ratio" ) %>%
   group_by(date, stimuli)%>% 
   summarise(
     mean_stimuli = mean(stimuli_av_day   , na.rm =TRUE))
-Three_pm_per_animal_summary_per_day_table
+five_pm_per_animal_summary_per_day_table
+
+```
+
+
+## Total administered cues, at then of the trial
+
+- below information is just for 20th seems it is cumulative.
+
+```{r results -stimuli for ratio no facet  , echo=FALSE, message=FALSE, warning=FALSE}
+
+per_animal <- animal_GPS_data %>% 
+  group_by(date, deviceName) %>%
+  summarise(audio = max( cumulativeAudioCount, na.rm = TRUE),
+            pulse = max( cumulativeShockCount, na.rm = TRUE),
+            ratio = (pulse/audio)*100)
+
+
+per_animal <- ungroup(  per_animal)
+
+# names(per_animal)
+# str(per_animal)
+per_animal_20th <- per_animal %>% 
+  filter(date =="2021-10-20" )
+
+per_animal_20th %>% 
+  filter(stimuli == "audio"| stimuli == "pulse") %>% 
+ggplot( aes(x=as.factor(stimuli), y=value)) + 
+  geom_boxplot(fill="slateblue", alpha=0.2) + 
+  xlab("stimuli")
+
+
+summary_20th <- per_animal_20th %>% 
+  group_by(stimuli) %>% 
+  summarise(ave_cum_for_animals = mean(value, na.rm = TRUE),
+            SD = sd(value, na.rm = TRUE),
+            sum_cum_for_animals = sum(value, na.rm = TRUE))
+
+summary_20th
+```
+
+
+## Plot activity results
+ 
+
+These values are not cumulative.
+
+Each data line (and associated time is independent from the time before).
+
+However each line (row) is a summary of the animals activity in a 10 min window.
+
+
+The below plots are created using two steps:
+- Average per day per animals for the nominated activity.
+- Then the average of all the animals per activity is calulated and plotted
+
+
+
+**Per day plots**
+
+
+
+
+```{r lying_standing , echo=FALSE, message=FALSE, warning=FALSE}
+
+
+
+animal_GPS_data$resting_percentage <- as.double(animal_GPS_data$resting_percentage)
+animal_GPS_data$moving_percentage    <- as.double(animal_GPS_data$moving_percentage)
+animal_GPS_data$grazing_percentage   <- as.double(animal_GPS_data$grazing_percentage)
+
+
+
+#for each day and animal ave time for activity
+animal_GPS_data_av_activity_day <- animal_GPS_data %>% 
+  group_by(date, deviceName) %>% 
+  summarise(av_resting = mean( resting_percentage, na.rm = TRUE),
+            av_moving = mean( moving_percentage, na.rm = TRUE),
+            av_grazing = mean( grazing_percentage, na.rm = TRUE))
+
+
+
+animal_GPS_data_av_activity_day <- pivot_longer(animal_GPS_data_av_activity_day,
+                                                  cols = c("av_resting", "av_moving", "av_grazing"),
+                                                  names_to = "activity")
+
+
+
+
+
+animal_GPS_data_activity_1 <- animal_GPS_data_av_activity_day %>% 
+  group_by(date, activity)%>%
+  summarise(activity_av_day = mean(value, na.rm = TRUE))
+
+#str(animal_GPS_data_activity_1)
+
+animal_GPS_data_activity_1 %>%
+  ggplot(aes(x = date , y = activity_av_day)) +
+  geom_col(aes(fill = activity), width = 0.7)+
+  theme_classic() +
+  geom_vline(xintercept = as.Date(vertical_lines), col = "black")+
+  theme(axis.text.x = element_text(angle = 90))+
+  labs(
+    x = "Date",
+    y = "% time attributed to activity",
+    title = paste("all animals")
+  )
+
 
 ```
 
@@ -1411,10 +1628,10 @@ ggplot(animal_wts, aes(as.factor(deviceName), wt_diff)) +
   
 ## Extra Notes
   
--  Track which animal spent time outside the VF and ID them, noncompliant.
--  Compare early behaviour (the behaviour in the fisrt couple of days) of these of these noncompliant vs main herd.
--  The numbers should be approx 30/40 main herd, 10/40 or 6-7/40 were noncompliant.
--  Note at time Heath re orienated these noncompliant animals (back into the VF area).
+-  Track which animal spent time outside the VF and ID them, non compliant.
+-  Compare early behaviour (the behaviour in the first couple of days) of these of these non compliant vs main herd.
+-  The numbers should be approx 30/40 main herd, 10/40 or 6-7/40 were non compliant.
+-  Note at time Heath re oriented these non compliant animals (back into the VF area).
 
 -  Can we identify hotspots outside the VF area, if so do they match anything in the biomass data?
 -  Exclude the Bull from the start.
