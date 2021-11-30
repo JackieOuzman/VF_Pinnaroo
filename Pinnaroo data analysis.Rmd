@@ -1442,7 +1442,7 @@ five_pm_per_animal_summary_per_day %>%
 
 ```
 
-```{r results -stimuli for ratio no facet  , echo=FALSE, message=FALSE, warning=FALSE}
+```{r results -stimuli for ratio no facet 1 , echo=FALSE, message=FALSE, warning=FALSE}
 five_pm_per_animal_summary_per_day %>%
   filter(stimuli != "ratio" ) %>% 
   ggplot(aes(x = date , y = stimuli_av_day)) +
