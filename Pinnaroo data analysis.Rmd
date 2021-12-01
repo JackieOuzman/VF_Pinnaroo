@@ -1475,7 +1475,7 @@ five_pm_per_animal_summary_per_day_table
 
 - below information is just for 20th seems it is cumulative.
 
-```{r results -stimuli for ratio no facet  , echo=FALSE, message=FALSE, warning=FALSE}
+```{r results -stimuli for ratio no facet, eval=FALSE, message=FALSE, warning=FALSE, include=FALSE}
 
 per_animal <- animal_GPS_data %>% 
   group_by(date, deviceName) %>%
