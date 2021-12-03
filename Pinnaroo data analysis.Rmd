@@ -1238,6 +1238,75 @@ animal_count
 
 ```
 
+## Cues for the paper
+
+How many cues did the VF group get? 
+  
+```{r number of cues , message=FALSE, warning=FALSE, include=FALSE}
+
+
+str(animal_GPS_data)
+
+# just select the last day of the trial?
+
+min(animal_GPS_data$local_time)
+max(animal_GPS_data$local_time)
+
+max_time_to_filter <- animal_GPS_data %>%  group_by(deviceName) %>% 
+  summarise(max_local_time = max(local_time, na.rm =TRUE))
+View(max_time_to_filter)
+count(max_time_to_filter)
+
+max_time_to_filter2 <- max_time_to_filter %>%  group_by( ) %>% 
+  summarise(min_max_time = min(max_local_time, na.rm =TRUE))
+print(max_time_to_filter2)
+
+#2021-10-20 08:53:00
+
+
+last_record <- animal_GPS_data %>% 
+  filter(between(ymd_hms(local_time),
+                 ymd_hms("2021-10-20 08:50:00"), ymd_hms("2021-10-20 08:55:00"))) 
+
+View(last_record)
+#Do we have one reading per animal? 
+check <- last_record %>% group_by(deviceName) %>% 
+  summarise(count = n())
+#yes we have one reading per animal
+#now do we have 40 animals?
+
+check2 <- unique(check$deviceName)
+print(check2) # yes 39
+names(last_record)
+last_record <- last_record %>% 
+  dplyr::select(deviceUIDHex:timeOfEvent,cumulativeAudioCount, cumulativeShockCount,  local_time, DOY )
+str(last_record)
+
+last_record_summary <- last_record %>% 
+  mutate(prop_audio_to_cues = cumulativeAudioCount/ (cumulativeShockCount + cumulativeAudioCount)*100)
+View(last_record_summary)
+
+last_record_summary_stats <- last_record_summary %>% 
+  group_by( ) %>% 
+  summarise(Av_Audio = mean(cumulativeAudioCount, na.rm = TRUE),
+            std_dev_Av_Audio = sd(cumulativeAudioCount, na.rm = TRUE),
+            SE_Av_Audio = std_dev_Av_Audio / sqrt(n()),
+            
+            Av_Pulse = mean(cumulativeShockCount, na.rm = TRUE),
+            std_dev_Av_Pulse = sd(cumulativeShockCount, na.rm = TRUE),
+            SE_Av_Pulse = std_dev_Av_Pulse / sqrt(n()),
+            
+            Av_prop = mean(prop_audio_to_cues, na.rm = TRUE),
+            std_dev_prop = sd(prop_audio_to_cues, na.rm = TRUE),
+            SE_Av_prop = std_dev_prop / sqrt(n()),
+            
+            count = n())
+
+last_record_summary_stats
+
+
+
+
 ## Plot stimuli results per animal
 
 
@@ -1597,24 +1666,31 @@ animal_wts <- animal_wts %>%
   filter(!is.na(deviceName))
 #animal_wts$date_out - animal_wts$date_in
 
+animal_wts <- animal_wts %>%
+  mutate(wt_diff_daily = wt_diff /13)
+
 animal_wts_stats <- animal_wts %>% 
   group_by() %>% 
   summarise(sum_wt_gain = sum(wt_diff, na.rm = TRUE),
-            Av_wt_gain = mean(wt_diff, na.rm = TRUE),
             std_dev_wt_gain = sd(wt_diff, na.rm = TRUE),
-            Av_wt_gain_per_day = (mean(wt_diff, na.rm = TRUE))/13,
-            count = n()
-  )
+            wt_gain_SE = std_dev_wt_gain / sqrt(n()),
+            
+            Av_wt_diff_daily = mean(wt_diff_daily, na.rm = TRUE),
+            std_dev_daily_gain = sd(wt_diff_daily, na.rm = TRUE),
+            wt_daily_gain_SE = std_dev_daily_gain / sqrt(n()),
+            
+            count = n())
+  
+animal_wts_stats
 
-
-datatable(
-  animal_wts_stats,
-  options = list(dom = 't'),
-  #removes the search bar
-  caption = 'Weight gain kg',
-  rownames = FALSE,
-  colnames = c('Total for mob', 'Average per animal', 'Stdev per animal', 'Av per animal per day','Count') )%>%   
-    formatRound(c(1:4), 2)
+# datatable(
+#   animal_wts_stats,
+#   options = list(dom = 't'),
+#   #removes the search bar
+#   caption = 'Weight gain kg',
+#   rownames = FALSE,
+#   colnames = c('Total for mob', 'Average per animal', 'Stdev per animal', 'Av per animal per day',"SE",'Count') )%>%
+#     formatRound(c(1:5), 2)
 
 ```
 
