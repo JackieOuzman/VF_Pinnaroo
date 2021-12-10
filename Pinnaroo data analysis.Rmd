@@ -1817,7 +1817,7 @@ group_by(day_since_trial_start) %>%
 
 #### Animal movement day 1 of each fence move for 8 hours
 
-```{r write up GPS plots image, echo=TRUE, message=FALSE, warning=FALSE}
+```{r write up GPS plots image, echo=FALSE, message=FALSE, warning=FALSE}
 
 
 
@@ -1835,7 +1835,7 @@ ggplot() +
 
 #For each above plot Dana would like to know how what is the time window.
 
-```{r write up GPS plots time period, echo=TRUE, message=FALSE, warning=FALSE}
+```{r write up GPS plots time period, echo=FALSE, message=FALSE, warning=FALSE}
 
 fence1_4_day1_select_days_time <- fence1_4_day1_select_days %>%
   dplyr::select(VF_area,local_time ) %>% 
